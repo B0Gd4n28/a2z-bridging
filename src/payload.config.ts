@@ -68,6 +68,8 @@ export default buildConfig({
         pool: {
           connectionString: process.env.DATABASE_URL,
         },
+        // No migrations set up yet — auto-sync the schema on a fresh database.
+        push: true,
       })
     : sqliteAdapter({
         client: {
