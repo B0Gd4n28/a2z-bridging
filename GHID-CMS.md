@@ -8,7 +8,7 @@ Panoul de administrare (CMS) controlează tot conținutul dinamic al site-ului: 
 
 | Ce | Unde |
 |---|---|
-| **Adresa CMS** | `http://localhost:3000/admin` (local) · `https://a2zbridging.co.uk/admin` (după lansare) |
+| **Adresa CMS** | `http://localhost:3000/admin` (local) · `https://a2z-bridging.vercel.app/admin` (live acum) · `https://a2zbridging.co.uk/admin` (după conectarea domeniului propriu) |
 | **Prima accesare** | La prima vizită ți se cere să creezi contul de administrator (email + parolă) |
 | **Utilizatori noi** | Admin → grupul **Admin** → **Users** → *Create New* |
 

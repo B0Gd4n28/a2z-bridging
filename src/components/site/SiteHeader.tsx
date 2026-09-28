@@ -3,9 +3,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Phone, Menu, X, CalendarCheck } from 'lucide-react'
+import { Menu, X, CalendarCheck } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
-import { NAV_LINKS, SITE } from '@/lib/site'
+import { NAV_LINKS } from '@/lib/site'
 
 export const SiteHeader: React.FC = () => {
   const [open, setOpen] = useState(false)
@@ -57,15 +57,6 @@ export const SiteHeader: React.FC = () => {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a
-            href={SITE.phoneHref}
-            className="hidden items-center gap-2 text-sm font-semibold text-navy-900 transition-colors hover:text-brand-600 xl:inline-flex"
-          >
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-mist text-brand-600">
-              <Phone size={14} />
-            </span>
-            {SITE.phone}
-          </a>
           <Link
             href="/contact"
             className="hidden items-center gap-2 rounded-md bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-700 sm:inline-flex"
@@ -112,13 +103,6 @@ export const SiteHeader: React.FC = () => {
               <CalendarCheck size={15} />
               Book a Free Consultation
             </Link>
-            <a
-              href={SITE.phoneHref}
-              className="mt-3 flex items-center justify-center gap-2 rounded-md border border-navy-100 px-5 py-3 text-sm font-semibold text-navy-900"
-            >
-              <Phone size={15} className="text-brand-600" />
-              Call {SITE.phone}
-            </a>
           </nav>
         </>
       )}

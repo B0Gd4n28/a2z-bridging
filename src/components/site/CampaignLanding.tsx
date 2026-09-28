@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArrowRight, PhoneCall, type LucideIcon } from 'lucide-react'
+import { ArrowRight, type LucideIcon } from 'lucide-react'
 import { Hero } from './Hero'
 import { StatsBar } from './StatsBar'
 import { TrustBar } from './TrustBar'
@@ -7,7 +7,6 @@ import { EnquiryWizard, type WizardVariant } from './EnquiryWizard'
 import { SectionHeading } from './SectionHeading'
 import { Reveal } from './Reveal'
 import { ScrollLink } from './ScrollLink'
-import { SITE } from '@/lib/site'
 
 export type CampaignLandingProps = {
   eyebrow: string
@@ -109,13 +108,6 @@ const CtaSection: React.FC<{ title: string; text: string }> = ({ title, text }) 
             Get Your Quote
             <ArrowRight size={16} />
           </ScrollLink>
-          <a
-            href={SITE.phoneHref}
-            className="inline-flex items-center gap-2 rounded-md border border-white/40 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-          >
-            <PhoneCall size={15} />
-            Call {SITE.phone}
-          </a>
         </div>
       </div>
     </div>
