@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { ScrollLink } from './ScrollLink'
@@ -18,14 +17,14 @@ export const LandingHeader: React.FC = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-white transition-shadow ${scrolled ? 'shadow-md' : 'border-b border-navy-100'}`}
+      className={`sticky top-0 z-50 bg-navy-900 transition-shadow ${scrolled ? 'shadow-lg' : ''}`}
     >
       <div className="container flex h-16 items-center justify-between gap-4 lg:h-[72px]">
-        <span className="flex shrink-0 items-center gap-2.5 font-serif text-xl font-bold text-navy-900">
-          <Image src="/a2z-logo.jpg" alt="A2Z Bridging" width={34} height={34} className="rounded-md" priority />
-          <span>
-            A2Z <span className="text-brand-600">Bridging</span>
+        <span className="flex shrink-0 flex-col leading-[1.05] font-serif font-extrabold tracking-tight text-white">
+          <span className="text-lg lg:text-xl">
+            A2Z <span className="text-brand-500">|</span>
           </span>
+          <span className="text-lg lg:text-xl">BRIDGING</span>
         </span>
 
         <ScrollLink

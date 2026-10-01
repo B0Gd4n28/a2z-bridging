@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Mail, MapPin, ShieldCheck } from 'lucide-react'
 import React from 'react'
 import { SITE } from '@/lib/site'
@@ -8,11 +7,11 @@ export const LandingFooter: React.FC = () => (
   <footer className="bg-navy-900 text-white">
     <div className="container flex flex-wrap items-start justify-between gap-8 py-12">
       <div>
-        <p className="flex items-center gap-2.5 font-serif text-lg font-bold">
-          <Image src="/a2z-logo.jpg" alt="" width={30} height={30} className="rounded-md ring-1 ring-white/20" />
-          <span>
-            A2Z <span className="text-brand-500">Bridging</span>
+        <p className="flex flex-col leading-[1.05] font-serif font-extrabold tracking-tight">
+          <span className="text-lg">
+            A2Z <span className="text-brand-500">|</span>
           </span>
+          <span className="text-lg">BRIDGING</span>
         </p>
         <p className="mt-3 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs text-white/70">
           <ShieldCheck size={14} className="text-brand-400" />

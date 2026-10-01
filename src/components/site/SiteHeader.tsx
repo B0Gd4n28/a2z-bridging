@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X, CalendarCheck } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
@@ -32,14 +31,14 @@ export const SiteHeader: React.FC = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-white transition-shadow ${scrolled ? 'shadow-md' : 'border-b border-navy-100'}`}
+      className={`sticky top-0 z-50 bg-navy-900 transition-shadow ${scrolled ? 'shadow-lg' : ''}`}
     >
       <div className="container flex h-16 items-center justify-between gap-4 lg:h-[72px]">
-        <Link href="/" className="flex shrink-0 items-center gap-2.5 font-serif text-xl font-bold text-navy-900">
-          <Image src="/a2z-logo.jpg" alt="" width={34} height={34} className="rounded-md" priority />
-          <span>
-            A2Z <span className="text-brand-600">Bridging</span>
+        <Link href="/" className="flex shrink-0 flex-col leading-[1.05] font-serif font-extrabold tracking-tight text-white">
+          <span className="text-lg lg:text-xl">
+            A2Z <span className="text-brand-500">|</span>
           </span>
+          <span className="text-lg lg:text-xl">BRIDGING</span>
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
@@ -47,8 +46,8 @@ export const SiteHeader: React.FC = () => {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-brand-600 ${
-                pathname?.startsWith(link.href) ? 'text-brand-600' : 'text-navy-900'
+              className={`text-sm font-medium transition-colors hover:text-white ${
+                pathname?.startsWith(link.href) ? 'text-white' : 'text-white/75'
               }`}
             >
               {link.label}
@@ -69,7 +68,7 @@ export const SiteHeader: React.FC = () => {
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-md text-navy-900 lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-md text-white lg:hidden"
           >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
