@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="bg-mist">
-      <section className="py-16 lg:py-20">
+      <section className="py-20 lg:py-24">
         <div className="container grid gap-12 lg:grid-cols-2">
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">

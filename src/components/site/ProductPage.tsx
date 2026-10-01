@@ -36,7 +36,7 @@ export const ProductPage: React.FC<{ product: Product }> = ({ product }) => {
       <ProcessSteps title="From Enquiry to Completion in Four Steps" steps={product.steps} />
 
       {product.rates && (
-        <section className="bg-white py-16 lg:py-24">
+        <section className="bg-white py-20 lg:py-28">
           <div className="container">
             <SectionHeading eyebrow="Indicative Pricing" title="Typical Rates & Terms" />
             <div className="mx-auto mt-10 max-w-4xl overflow-x-auto">
@@ -84,7 +84,7 @@ export const ProductPage: React.FC<{ product: Product }> = ({ product }) => {
         </section>
       )}
 
-      <section className="bg-mist py-16 lg:py-24">
+      <section className="bg-mist py-20 lg:py-28">
         <div className="container">
           <SectionHeading eyebrow="Common Questions" title={`${product.title} FAQ`} />
           <div className="mt-10">

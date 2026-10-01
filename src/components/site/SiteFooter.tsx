@@ -106,12 +106,6 @@ export const SiteFooter: React.FC = () => {
                 {SITE.phone}
               </a>
             </li>
-            <li>
-              <a href={SITE.phone2Href} className="inline-flex items-center gap-2.5 hover:text-white">
-                <Phone size={15} className="shrink-0 text-brand-400" />
-                {SITE.phone2}
-              </a>
-            </li>
             <li className="inline-flex items-start gap-2.5 text-white/55">
               <MapPin size={15} className="mt-0.5 shrink-0 text-brand-400" />
               {SITE.address}

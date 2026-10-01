@@ -19,7 +19,7 @@ const RELATED = [
 export default function CalculatorPage() {
   return (
     <div className="bg-mist">
-      <section className="py-16 lg:py-20">
+      <section className="py-20 lg:py-24">
         <div className="container">
           <div className="mx-auto max-w-2xl text-center">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-brand-600">

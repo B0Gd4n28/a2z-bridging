@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Mail, MapPin, Phone, ShieldCheck } from 'lucide-react'
+import { Mail, MapPin, ShieldCheck } from 'lucide-react'
 import React from 'react'
 import { SITE } from '@/lib/site'
 
@@ -21,12 +21,6 @@ export const LandingFooter: React.FC = () => (
       </div>
 
       <ul className="space-y-3 text-sm text-white/75">
-        <li>
-          <a href={SITE.phoneHref} className="inline-flex items-center gap-2.5 hover:text-white">
-            <Phone size={15} className="shrink-0 text-brand-400" />
-            {SITE.phone}
-          </a>
-        </li>
         <li>
           <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-2.5 hover:text-white">
             <Mail size={15} className="shrink-0 text-brand-400" />

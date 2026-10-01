@@ -19,7 +19,7 @@ export const Hero: React.FC<{
       <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
       <div className="animate-float-slow pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-navy-700/40 blur-[1px]" aria-hidden="true" />
       <div className="animate-float-slower pointer-events-none absolute -bottom-32 right-40 h-64 w-64 rounded-full bg-brand-600/10" aria-hidden="true" />
-      <div className="container relative py-16 lg:py-24">
+      <div className="container relative py-20 lg:py-28">
         <div className="max-w-2xl">
           {eyebrow && (
             <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.1em] text-white/70 backdrop-blur sm:tracking-[0.2em]">

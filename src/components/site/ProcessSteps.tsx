@@ -10,7 +10,7 @@ export const ProcessSteps: React.FC<{
   title: string
   steps: { title: string; text: string }[]
 }> = ({ eyebrow = 'How It Works', title, steps }) => (
-  <section className="bg-mist py-16 lg:py-24">
+  <section className="bg-mist py-20 lg:py-28">
     <div className="container">
       <Reveal>
         <SectionHeading eyebrow={eyebrow} title={title} />

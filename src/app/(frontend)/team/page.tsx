@@ -10,19 +10,20 @@ import { Reveal } from '@/components/site/Reveal'
 export const revalidate = 600
 
 export const metadata: Metadata = {
-  title: 'Meet the Team — A Named Advisor on Every Case',
+  title: 'Bridging Finance Specialists — Meet the Team | A2Z Bridging',
   description:
-    'No call centres, no rotating queues — just experienced advisors who manage your case personally from first call to completion.',
+    "We're a London team of credit brokers with the energy of a start-up and the lending experience of a high-street bank. No call centre, no rotating queues.",
   alternates: { canonical: '/team' },
 }
 
 const FALLBACK_TEAM = [
-  { name: 'Zain Rashid', role: 'Senior Finance Advisor', bio: '8 years arranging bridging and development finance. Known for untangling complex, multi-property cases.', tags: ['Bridging', 'Development'] },
-  { name: 'Ani Karapetyan', role: 'Bridging Specialist', bio: 'Specialises in fast-turnaround cases where two other lenders have already declined.', tags: ['Bridging', 'Chain Break'] },
-  { name: 'Fatima Noor', role: 'Commercial Advisor', bio: 'Focused on commercial mortgages and business loans for owner-occupiers and investors.', tags: ['Commercial', 'Business Loans'] },
-  { name: 'Syed Ahmed', role: 'Auction Finance Lead', bio: "Built A2Z's auction finance process around the 28-day completion deadline.", tags: ['Auction', 'Fast Completion'] },
-  { name: 'Abbas Karimi', role: 'Buy-to-Let Specialist', bio: 'Works with individual landlords and portfolio investors across standard and specialist BTL.', tags: ['Buy-to-Let', 'Portfolio'] },
-  { name: 'Priya Shah', role: 'Client Onboarding Lead', bio: 'Your first point of contact — matches every enquiry to the right specialist advisor.', tags: ['Onboarding', 'All Products'] },
+  { name: 'Syed Abbas', role: 'CEO', bio: 'Leads A2Z Bridging and oversees every case from first call to completion.', tags: ['Leadership'] },
+  { name: 'Jimeet Kakar', role: 'Partner', bio: 'Works across bridging, development and commercial finance deals.', tags: ['Bridging', 'Commercial'] },
+  { name: 'Ani Sheikh', role: 'Sales Director', bio: 'Leads the advisory team and manages key lender relationships.', tags: ['Bridging', 'Lender Relations'] },
+  { name: 'Zain Abbas', role: 'Director of Business Development', bio: 'Builds new partnerships and manages complex, multi-property cases.', tags: ['Business Development'] },
+  { name: 'Tanveer Kakar', role: 'Business Development Manager', bio: 'Works with brokers and introducers to structure the right finance for each deal.', tags: ['Business Development'] },
+  { name: 'Aima Hasan', role: 'Case Manager', bio: 'Manages cases from application through to completion.', tags: ['Case Management'] },
+  { name: 'Abdullah Mansoor', role: 'Case Manager', bio: 'Manages cases from application through to completion.', tags: ['Case Management'] },
 ]
 
 async function getTeam() {
@@ -49,12 +50,13 @@ export default async function TeamPage() {
 
   return (
     <>
-      <section className="bg-white py-16 lg:py-20">
+      <section className="bg-white py-20 lg:py-24">
         <div className="container">
           <SectionHeading
-            eyebrow="Meet the Team"
-            title="A Named Advisor on Every Case"
-            text="No call centres, no rotating queues — just experienced advisors who manage your case personally from first call to completion."
+            as="h1"
+            eyebrow="About A2Z Bridging"
+            title="Bridging Finance Specialists — Meet the Team"
+            text="We're a London team of credit brokers with the energy of a start-up and the lending experience of a high-street bank. No call centre, no rotating queues — your advisor manages your case personally from first call to completion."
           />
 
           <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

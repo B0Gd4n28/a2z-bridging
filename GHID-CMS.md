@@ -47,7 +47,8 @@ The left-hand menu is organised into groups:
 ## 3. How to publish a guide (article) — step by step
 
 1. **Guides** → **Create New**
-2. Fill in **Title** — the slug is generated automatically
+2. Fill in **Title** — the slug is generated automat
+ically
 3. Add a **Hero Image** (from Media or upload directly)
 4. Write the content in the editor (headings, lists, quotes, images, blocks)
 5. **SEO** tab: fill in **Meta Title** (max ~60 characters) and **Meta Description** (max ~155) — the *Auto-generate* button helps

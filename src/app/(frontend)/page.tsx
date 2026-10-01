@@ -42,9 +42,9 @@ const REAL_TESTIMONIALS: TestimonialItem[] = [
 ]
 
 const WHY_A2Z = [
-  { icon: ShieldCheck, title: 'No upfront broker fees', text: 'No hidden charges from us — you only pay when your finance completes.' },
-  { icon: BadgePercent, title: 'The most competitive rate', text: 'We work the market to your advantage, collaborating closely with lenders.' },
-  { icon: Zap, title: 'Built for speed', text: 'Life moves fast. Business moves faster. And property? Faster still.' },
+  { icon: ShieldCheck, title: 'No Upfront Fee', text: 'Talk to an advisor and see indicative terms before you commit to anything.' },
+  { icon: BadgePercent, title: 'Whole-of-Market Access', text: 'We compare specialist lenders, challenger banks and private funders to find terms that fit your deal.' },
+  { icon: Zap, title: 'Built for Speed', text: 'Indicative terms typically the same working day, and completions in days when the deadline demands it.' },
   { icon: Handshake, title: 'Transparent, personal service', text: 'Startup energy with the sector experience of a high-street lender.' },
 ]
 
@@ -85,7 +85,7 @@ export default async function HomePage() {
       <StatsBar stats={SITE.stats} />
       <TrustBar />
 
-      <section className="bg-mist py-16 lg:py-24" id="calculator">
+      <section className="bg-mist py-20 lg:py-28" id="calculator">
         <div className="container">
           <Reveal>
             <SectionHeading
@@ -157,7 +157,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="bg-mist py-16 lg:py-24">
+      <section className="bg-mist py-20 lg:py-28">
         <div className="container">
           <Reveal>
             <SectionHeading
@@ -172,7 +172,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-16 lg:py-24">
+      <section className="bg-white py-20 lg:py-28">
         <div className="container">
           <Reveal>
             <SectionHeading eyebrow="Learn" title="Guides & Insights" />

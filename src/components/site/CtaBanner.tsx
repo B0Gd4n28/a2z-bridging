@@ -17,7 +17,7 @@ export const CtaBanner: React.FC<{
   secondaryLabel = 'Request a Call Back',
   secondaryHref = '/contact#callback',
 }) => (
-  <section className="bg-white py-16 lg:py-20">
+  <section className="bg-white py-20 lg:py-24">
     <div className="container">
       <div className="relative overflow-hidden rounded-2xl bg-navy-900 px-6 py-14 text-center text-white lg:px-16">
         <div className="pointer-events-none absolute -bottom-16 -right-10 h-56 w-56 rounded-full bg-navy-700/50" aria-hidden="true" />

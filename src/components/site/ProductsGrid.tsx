@@ -24,7 +24,7 @@ const ICONS: Record<string, LucideIcon> = {
 }
 
 export const ProductsGrid: React.FC = () => (
-  <section className="bg-white py-16 lg:py-24">
+  <section className="bg-white py-20 lg:py-28">
     <div className="container">
       <Reveal>
         <SectionHeading eyebrow="Finance, From A to Z" title="Six Ways We Help You Move Faster" />

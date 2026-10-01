@@ -103,7 +103,7 @@ export default function QuotePage() {
         </div>
       </section>
 
-      <section className="bg-mist py-16 lg:py-20">
+      <section className="bg-mist py-20 lg:py-24">
         <div className="container">
           <Reveal>
             <SectionHeading eyebrow="The Process" title="Three Steps From Enquiry to Terms" />
@@ -130,7 +130,7 @@ export default function QuotePage() {
         </div>
       </section>
 
-      <section className="bg-white py-16 lg:py-20">
+      <section className="bg-white py-20 lg:py-24">
         <div className="container">
           <Reveal>
             <SectionHeading eyebrow="Common Questions" title="Before You Get in Touch" />

@@ -8,9 +8,9 @@ import { SectionHeading } from '@/components/site/SectionHeading'
 export const revalidate = 600
 
 export const metadata: Metadata = {
-  title: 'Case Studies — Real Deals, Real Deadlines',
+  title: 'Bridging Finance Case Studies | A2Z Bridging',
   description:
-    'How A2Z Bridging clients secured finance when banks said no — auction completions in 9 days, chain breaks solved, complex deals placed.',
+    'Real deals, real deadlines. Every case study is a completed A2Z deal, with the loan amount, LTV and timeline.',
   alternates: { canonical: '/case-studies' },
 }
 
@@ -33,12 +33,13 @@ export default async function CaseStudiesPage() {
   })
 
   return (
-    <section className="bg-mist py-16 lg:py-20">
+    <section className="bg-mist py-20 lg:py-24">
       <div className="container">
         <SectionHeading
+          as="h1"
           eyebrow="Case Studies"
-          title="Real Deals, Real Deadlines"
-          text="How our clients secured finance when the clock was ticking — and what it cost them."
+          title="Bridging Finance Case Studies"
+          text="Real deals, real deadlines. Every case study is a completed A2Z deal, with the loan amount, LTV and timeline."
         />
 
         {docs.length === 0 ? (

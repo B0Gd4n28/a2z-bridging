@@ -47,7 +47,7 @@ export const CampaignLanding: React.FC<CampaignLandingProps> = (p) => (
     <StatsBar stats={p.stats} />
     <TrustBar />
 
-    <section className="bg-white py-16 lg:py-24">
+    <section className="bg-white py-20 lg:py-28">
       <div className="container">
         <Reveal>
           <SectionHeading eyebrow={p.infoEyebrow} title={p.infoTitle} text={p.infoText} />
@@ -68,7 +68,7 @@ export const CampaignLanding: React.FC<CampaignLandingProps> = (p) => (
       </div>
     </section>
 
-    <section className="bg-mist py-16 lg:py-24" id="calculator">
+    <section className="bg-mist py-20 lg:py-28" id="calculator">
       <div className="container">
         <Reveal>
           <SectionHeading
@@ -94,7 +94,7 @@ export const CampaignLanding: React.FC<CampaignLandingProps> = (p) => (
 
 /* Self-contained final CTA — anchors and tel: only, safe for standalone domains. */
 const CtaSection: React.FC<{ title: string; text: string }> = ({ title, text }) => (
-  <section className="bg-white py-16 lg:py-20">
+  <section className="bg-white py-20 lg:py-24">
     <div className="container">
       <div className="relative overflow-hidden rounded-2xl bg-navy-900 px-6 py-14 text-center text-white lg:px-16">
         <div className="pointer-events-none absolute -bottom-16 -right-10 h-56 w-56 rounded-full bg-navy-700/50" aria-hidden="true" />
