@@ -172,7 +172,7 @@ export const LeadForm: React.FC<{ source?: string; dark?: boolean }> = ({
 
           {status === 'error' && (
             <p className="mt-4 rounded-md bg-brand-100 px-4 py-3 text-sm text-brand-700">
-              Something went wrong. Please try again or call us on 020 7780 0130.
+              Something went wrong. Please try again or email us directly.
             </p>
           )}
 

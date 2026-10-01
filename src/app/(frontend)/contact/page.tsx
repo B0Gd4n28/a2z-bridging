@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import React from 'react'
-import { Phone, Mail, MapPin, ShieldCheck } from 'lucide-react'
+import { Mail, MapPin, ShieldCheck } from 'lucide-react'
 import { LeadForm } from '@/components/site/LeadForm'
 import { SITE } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Contact Us — Book a Free Consultation',
   description:
-    'Speak to a named advisor at A2Z Bridging. Call 020 7780 0130, email info@a2zbridging.co.uk, or request a call back — typically within one business hour.',
+    'Speak to a named advisor at A2Z Bridging. Email info@a2zbridging.co.uk or request a call back — typically within one business hour.',
   alternates: { canonical: '/contact' },
 }
 
@@ -29,18 +29,6 @@ export default function ContactPage() {
             </p>
 
             <dl className="mt-10 space-y-6">
-              <div className="flex gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white text-brand-600 shadow-sm">
-                  <Phone size={19} />
-                </span>
-                <div>
-                  <dt className="text-xs font-semibold uppercase tracking-widest text-navy-900/50">Phone</dt>
-                  <dd className="mt-1 space-x-4">
-                    <a href={SITE.phoneHref} className="font-serif text-lg font-bold text-navy-900 hover:text-brand-600">{SITE.phone}</a>
-                    <a href={SITE.phone2Href} className="font-serif text-lg font-bold text-navy-900 hover:text-brand-600">{SITE.phone2}</a>
-                  </dd>
-                </div>
-              </div>
               <div className="flex gap-4">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-white text-brand-600 shadow-sm">
                   <Mail size={19} />

@@ -27,6 +27,9 @@ const nextConfig: NextConfig = {
         pathname: '/lenders/**',
       },
       {
+        pathname: '/team/**',
+      },
+      {
         pathname: '/a2z-logo.jpg',
       },
     ],
@@ -40,6 +43,11 @@ const nextConfig: NextConfig = {
           protocol: url.protocol.replace(':', '') as 'http' | 'https',
         }
       }),
+      // Media uploaded through the CMS is stored in Vercel Blob in production.
+      {
+        hostname: '*.public.blob.vercel-storage.com',
+        protocol: 'https',
+      },
     ],
   },
   webpack: (webpackConfig) => {

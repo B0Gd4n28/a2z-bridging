@@ -92,7 +92,7 @@ export const CampaignLanding: React.FC<CampaignLandingProps> = (p) => (
   </>
 )
 
-/* Self-contained final CTA — anchors and tel: only, safe for standalone domains. */
+/* Self-contained final CTA — anchors only, safe for standalone domains. */
 const CtaSection: React.FC<{ title: string; text: string }> = ({ title, text }) => (
   <section className="bg-white py-20 lg:py-24">
     <div className="container">

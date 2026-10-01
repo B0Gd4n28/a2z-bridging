@@ -26,6 +26,7 @@ export default function LandingLayout({ children }: { children: React.ReactNode 
     >
       <head>
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
+        <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
       </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
         <ScrollProgress />

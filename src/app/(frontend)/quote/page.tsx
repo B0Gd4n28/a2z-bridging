@@ -9,6 +9,7 @@ import {
   PhoneCall,
   ShieldCheck,
   ArrowRight,
+  Mail,
   type LucideIcon,
 } from 'lucide-react'
 import { LeadForm } from '@/components/site/LeadForm'
@@ -89,10 +90,10 @@ export default function QuotePage() {
             </div>
 
             <p className="mt-8 inline-flex items-center gap-2 text-sm text-white/60">
-              <PhoneCall size={14} className="text-brand-400" />
-              Prefer to talk?{' '}
-              <a href={SITE.phoneHref} className="font-semibold text-white underline">
-                Call {SITE.phone}
+              <Mail size={14} className="text-brand-400" />
+              Prefer email?{' '}
+              <a href={`mailto:${SITE.email}`} className="font-semibold text-white underline">
+                {SITE.email}
               </a>
             </p>
           </div>

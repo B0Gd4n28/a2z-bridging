@@ -6,7 +6,6 @@ import {
   Linkedin,
   Facebook,
   Mail,
-  Phone,
   MapPin,
   ShieldCheck,
   ArrowRight,
@@ -98,12 +97,6 @@ export const SiteFooter: React.FC = () => {
               <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-2.5 hover:text-white">
                 <Mail size={15} className="shrink-0 text-brand-400" />
                 {SITE.email}
-              </a>
-            </li>
-            <li>
-              <a href={SITE.phoneHref} className="inline-flex items-center gap-2.5 hover:text-white">
-                <Phone size={15} className="shrink-0 text-brand-400" />
-                {SITE.phone}
               </a>
             </li>
             <li className="inline-flex items-start gap-2.5 text-white/55">

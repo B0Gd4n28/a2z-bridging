@@ -1,8 +1,9 @@
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { postgresAdapter } from '@payloadcms/db-postgres'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import sharp from 'sharp'
 import path from 'path'
-import { buildConfig, PayloadRequest } from 'payload'
+import { buildConfig, PayloadRequest, Plugin } from 'payload'
 import { fileURLToPath } from 'url'
 
 import { Categories } from './collections/Categories'
@@ -22,6 +23,18 @@ import { getServerSideURL } from './utilities/getURL'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+
+// Media uploads persist to Vercel Blob in production (Vercel's filesystem is ephemeral).
+// Falls back to local disk storage for local development when no token is set.
+const blobStoragePlugin: Plugin[] = process.env.BLOB_READ_WRITE_TOKEN
+  ? [
+      vercelBlobStorage({
+        enabled: true,
+        collections: { media: true },
+        token: process.env.BLOB_READ_WRITE_TOKEN,
+      }),
+    ]
+  : []
 
 export default buildConfig({
   admin: {
@@ -79,7 +92,7 @@ export default buildConfig({
   collections: [Pages, Posts, Media, Categories, Users, Leads, TeamMembers, Testimonials, CaseStudies],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
-  plugins,
+  plugins: [...plugins, ...blobStoragePlugin],
   secret: process.env.PAYLOAD_SECRET,
   sharp,
   typescript: {

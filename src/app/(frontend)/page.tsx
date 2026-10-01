@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { getPayload } from 'payload'
@@ -13,16 +14,16 @@ import { SectionHeading } from '@/components/site/SectionHeading'
 import { CtaBanner } from '@/components/site/CtaBanner'
 import { Reveal } from '@/components/site/Reveal'
 import { TestimonialCarousel, type TestimonialItem } from '@/components/site/TestimonialCarousel'
-import { ShieldCheck, BadgePercent, Zap, Handshake, UserRound, BookOpen, ArrowRight } from 'lucide-react'
+import { ShieldCheck, BadgePercent, Zap, Handshake, BookOpen, ArrowRight } from 'lucide-react'
 import { SITE } from '@/lib/site'
 
 export const revalidate = 600
 
 const FALLBACK_ADVISORS = [
-  { name: 'Zain Rashid', role: 'Senior Finance Advisor', quote: 'Zain kept me updated every step — completed in 11 days.' },
-  { name: 'Ani Karapetyan', role: 'Bridging Specialist', quote: 'Ani found a lender when two banks had already said no.' },
-  { name: 'Fatima Noor', role: 'Commercial Advisor', quote: 'Clear, honest advice from the first call to completion.' },
-  { name: 'Syed Ahmed', role: 'Auction Finance Lead', quote: 'Syed got terms agreed within 24 hours of my call.' },
+  { name: 'Syed Abbas', role: 'CEO', quote: 'Syed kept me updated every step — completed in 11 days.', photo: '/team/syed-abbas.jpg' },
+  { name: 'Jimeet Kakar', role: 'Partner', quote: 'Jimeet found a lender when two banks had already said no.', photo: '/team/jimeet-kakar.jpg' },
+  { name: 'Ani Sheikh', role: 'Sales Director', quote: 'Clear, honest advice from the first call to completion.', photo: '/team/ani-sheikh.jpg' },
+  { name: 'Zain Abbas', role: 'Director of Business Development', quote: 'Zain got terms agreed within 24 hours of my call.', photo: '/team/zain-abbas.jpg' },
 ]
 
 const FALLBACK_GUIDES = [
@@ -144,8 +145,14 @@ export default async function HomePage() {
             {FALLBACK_ADVISORS.map((a, i) => (
               <Reveal key={a.name} delay={i * 100}>
                 <div className="h-full rounded-xl bg-navy-800 p-5 transition-transform hover:-translate-y-1">
-                  <div className="flex h-24 items-center justify-center rounded-lg bg-gradient-to-br from-brand-400/60 to-navy-600">
-                    <UserRound size={38} strokeWidth={1.4} className="text-white/80" aria-hidden="true" />
+                  <div className="flex h-24 items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-brand-400/60 to-navy-600">
+                    <Image
+                      src={a.photo}
+                      alt={a.name}
+                      width={200}
+                      height={96}
+                      className="h-full w-full object-cover"
+                    />
                   </div>
                   <p className="mt-4 text-sm font-bold">{a.name}</p>
                   <p className="text-xs text-brand-400">{a.role}</p>

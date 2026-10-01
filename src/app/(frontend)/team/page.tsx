@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { getPayload } from 'payload'
@@ -6,6 +7,7 @@ import configPromise from '@payload-config'
 import { UserRound, Tag, ArrowRight } from 'lucide-react'
 import { SectionHeading } from '@/components/site/SectionHeading'
 import { Reveal } from '@/components/site/Reveal'
+import { getMediaUrl } from '@/utilities/getMediaUrl'
 
 export const revalidate = 600
 
@@ -45,8 +47,12 @@ export default async function TeamPage() {
           role: m.role,
           bio: m.bio ?? '',
           tags: (m.tags ?? []).map((t) => t.tag),
+          photoUrl:
+            m.photo && typeof m.photo === 'object' && m.photo.url
+              ? getMediaUrl(m.photo.url)
+              : null,
         }))
-      : FALLBACK_TEAM
+      : FALLBACK_TEAM.map((m) => ({ ...m, photoUrl: null as string | null }))
 
   return (
     <>
@@ -63,8 +69,18 @@ export default async function TeamPage() {
             {team.map((m, i) => (
               <Reveal key={m.name} delay={(i % 3) * 100}>
                 <div className="h-full overflow-hidden rounded-xl border border-navy-100 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
-                  <div className="flex h-44 items-center justify-center bg-gradient-to-br from-brand-400/60 via-brand-100 to-mist">
-                    <UserRound size={56} strokeWidth={1.2} className="text-white/90 drop-shadow" aria-hidden="true" />
+                  <div className="flex h-44 items-center justify-center overflow-hidden bg-gradient-to-br from-brand-400/60 via-brand-100 to-mist">
+                    {m.photoUrl ? (
+                      <Image
+                        src={m.photoUrl}
+                        alt={m.name}
+                        width={352}
+                        height={176}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <UserRound size={56} strokeWidth={1.2} className="text-white/90 drop-shadow" aria-hidden="true" />
+                    )}
                   </div>
                   <div className="p-6">
                     <h2 className="font-serif text-lg font-bold text-navy-900">{m.name}</h2>
