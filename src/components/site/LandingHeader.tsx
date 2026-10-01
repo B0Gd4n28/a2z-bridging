@@ -17,14 +17,13 @@ export const LandingHeader: React.FC = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-navy-900 transition-shadow ${scrolled ? 'shadow-lg' : ''}`}
+      className={`sticky top-0 z-50 bg-white transition-shadow ${scrolled ? 'shadow-md' : 'border-b border-navy-100'}`}
     >
       <div className="container flex h-16 items-center justify-between gap-4 lg:h-[72px]">
-        <span className="flex shrink-0 flex-col leading-[1.05] font-serif font-extrabold tracking-tight text-white">
-          <span className="text-lg lg:text-xl">
-            A2Z <span className="text-brand-500">|</span>
-          </span>
-          <span className="text-lg lg:text-xl">BRIDGING</span>
+        <span className="flex shrink-0 items-baseline gap-1.5 font-serif text-lg font-extrabold tracking-tight text-navy-900 lg:text-xl">
+          <span>A2Z</span>
+          <span className="text-brand-600">|</span>
+          <span>BRIDGING</span>
         </span>
 
         <ScrollLink

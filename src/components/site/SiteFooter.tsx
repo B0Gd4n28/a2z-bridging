@@ -32,11 +32,10 @@ export const SiteFooter: React.FC = () => {
 
       <div className="container relative grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="flex flex-col leading-[1.05] font-serif font-extrabold tracking-tight">
-            <span className="text-lg">
-              A2Z <span className="text-brand-500">|</span>
-            </span>
-            <span className="text-lg">BRIDGING</span>
+          <p className="flex items-baseline gap-1.5 font-serif text-lg font-extrabold tracking-tight">
+            <span>A2Z</span>
+            <span className="text-brand-500">|</span>
+            <span>BRIDGING</span>
           </p>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/60">
             Whole-of-market bridging and commercial finance, with a named advisor on every case.
