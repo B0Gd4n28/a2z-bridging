@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { TrendingUp, ArrowRight } from 'lucide-react'
 import React, { useMemo, useState } from 'react'
+import { ScrollLink } from './ScrollLink'
 
 const gbp = (n: number) =>
   n.toLocaleString('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 })
@@ -127,13 +128,23 @@ export const Calculator: React.FC<{ full?: boolean; quoteHref?: string }> = ({
             <dd className="font-serif text-2xl font-bold text-brand-400">{gbp(total)}</dd>
           </div>
         </dl>
-        <Link
-          href={quoteHref}
-          className="mt-6 flex items-center justify-center gap-2 rounded-md bg-brand-600 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-brand-700"
-        >
-          Get Your Quote
-          <ArrowRight size={15} />
-        </Link>
+        {quoteHref.startsWith('#') ? (
+          <ScrollLink
+            targetId={quoteHref.slice(1)}
+            className="mt-6 flex items-center justify-center gap-2 rounded-md bg-brand-600 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+          >
+            Get Your Quote
+            <ArrowRight size={15} />
+          </ScrollLink>
+        ) : (
+          <Link
+            href={quoteHref}
+            className="mt-6 flex items-center justify-center gap-2 rounded-md bg-brand-600 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+          >
+            Get Your Quote
+            <ArrowRight size={15} />
+          </Link>
+        )}
         <p className="mt-4 text-[11px] leading-relaxed text-white/45">
           Indicative only, not a formal quote or financial promotion. Final rates are subject to
           underwriting, valuation, and status.

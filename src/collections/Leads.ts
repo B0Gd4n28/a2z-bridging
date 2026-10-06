@@ -19,6 +19,17 @@ export const Leads: CollectionConfig = {
     description:
       'Enquiries submitted through the website forms (quote landing, calculator, contact). Update the status as you work each lead.',
   },
+  hooks: {
+    beforeValidate: [
+      ({ data }) => {
+        // Honeypot: real users never see/fill this field — only bots that blindly fill every input do.
+        if (data?.company) {
+          throw new Error('Spam detected')
+        }
+        return data
+      },
+    ],
+  },
   fields: [
     { name: 'name', type: 'text', required: true },
     { name: 'email', type: 'email', required: true },
@@ -27,6 +38,11 @@ export const Leads: CollectionConfig = {
     { name: 'product', type: 'text' },
     { name: 'message', type: 'textarea' },
     { name: 'source', type: 'text', admin: { description: 'Page or campaign that generated the lead' } },
+    {
+      name: 'company',
+      type: 'text',
+      admin: { hidden: true, description: 'Honeypot field — should always be empty. Non-empty means the submission was spam.' },
+    },
     {
       name: 'status',
       type: 'select',

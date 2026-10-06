@@ -1,10 +1,11 @@
 'use client'
 
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, PhoneCall } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { ScrollLink } from './ScrollLink'
+import { SITE } from '@/lib/site'
 
-/* Minimal conversion-focused header for standalone landing pages — no site navigation, no phone (keeps focus on the form). */
+/* Minimal conversion-focused header for standalone landing pages — no site navigation. */
 export const LandingHeader: React.FC = () => {
   const [scrolled, setScrolled] = useState(false)
 
@@ -26,13 +27,22 @@ export const LandingHeader: React.FC = () => {
           <span>BRIDGING</span>
         </span>
 
-        <ScrollLink
-          targetId="enquiry-form"
-          className="inline-flex items-center gap-2 rounded-md bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
-        >
-          Get Your Quote
-          <ArrowRight size={14} />
-        </ScrollLink>
+        <div className="flex items-center gap-3">
+          <a
+            href={SITE.phoneHref}
+            className="hidden items-center gap-2 rounded-md border border-navy-100 px-4 py-2.5 text-sm font-semibold text-navy-900 transition-colors hover:border-brand-500/50 hover:text-brand-600 sm:inline-flex"
+          >
+            <PhoneCall size={14} />
+            Call Now
+          </a>
+          <ScrollLink
+            targetId="enquiry-form"
+            className="inline-flex items-center gap-2 rounded-md bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+          >
+            Get Your Quote
+            <ArrowRight size={14} />
+          </ScrollLink>
+        </div>
       </div>
     </header>
   )

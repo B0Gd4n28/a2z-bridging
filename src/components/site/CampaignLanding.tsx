@@ -1,12 +1,14 @@
 import React from 'react'
-import { ArrowRight, type LucideIcon } from 'lucide-react'
+import { ArrowRight, PhoneCall, type LucideIcon } from 'lucide-react'
 import { Hero } from './Hero'
 import { StatsBar } from './StatsBar'
 import { TrustBar } from './TrustBar'
+import { Calculator } from './Calculator'
 import { EnquiryWizard, type WizardVariant } from './EnquiryWizard'
 import { SectionHeading } from './SectionHeading'
 import { Reveal } from './Reveal'
 import { ScrollLink } from './ScrollLink'
+import { SITE } from '@/lib/site'
 
 export type CampaignLandingProps = {
   eyebrow: string
@@ -41,7 +43,7 @@ export const CampaignLanding: React.FC<CampaignLandingProps> = (p) => (
       }
       text={p.heroText}
       primaryCta={{ label: 'Get Your Quote', href: '#enquiry-form' }}
-      secondaryCta={{ label: 'Request a Call Back', href: '#enquiry-form' }}
+      secondaryCta={{ label: 'Call Now', href: SITE.phoneHref }}
     />
 
     <StatsBar stats={p.stats} />
@@ -77,14 +79,19 @@ export const CampaignLanding: React.FC<CampaignLandingProps> = (p) => (
             text={p.calculatorText}
           />
         </Reveal>
-        <Reveal delay={150} className="mx-auto mt-10 max-w-3xl">
-          <EnquiryWizard
-            product={p.product}
-            source={p.formSource}
-            variants={p.variants}
-            minAmount={p.minAmount}
-          />
-        </Reveal>
+        <div className="mt-10 grid gap-8 xl:grid-cols-2 xl:items-start">
+          <Reveal>
+            <Calculator quoteHref="#enquiry-form" />
+          </Reveal>
+          <Reveal delay={150}>
+            <EnquiryWizard
+              product={p.product}
+              source={p.formSource}
+              variants={p.variants}
+              minAmount={p.minAmount}
+            />
+          </Reveal>
+        </div>
       </div>
     </section>
 
@@ -92,7 +99,7 @@ export const CampaignLanding: React.FC<CampaignLandingProps> = (p) => (
   </>
 )
 
-/* Self-contained final CTA — anchors only, safe for standalone domains. */
+/* Self-contained final CTA — anchors + tel:, safe for standalone domains. */
 const CtaSection: React.FC<{ title: string; text: string }> = ({ title, text }) => (
   <section className="bg-white py-20 lg:py-24">
     <div className="container">
@@ -108,6 +115,13 @@ const CtaSection: React.FC<{ title: string; text: string }> = ({ title, text }) 
             Get Your Quote
             <ArrowRight size={16} />
           </ScrollLink>
+          <a
+            href={SITE.phoneHref}
+            className="inline-flex items-center gap-2 rounded-md border border-white/40 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/10"
+          >
+            <PhoneCall size={16} />
+            Call Now
+          </a>
         </div>
       </div>
     </div>

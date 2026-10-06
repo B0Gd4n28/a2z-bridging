@@ -34,11 +34,8 @@ export default function CalculatorPage() {
             </p>
           </div>
 
-          <div className="mx-auto mt-12 max-w-5xl">
-            <Calculator full />
-          </div>
-
-          <div className="mx-auto mt-8 max-w-5xl">
+          <div className="mx-auto mt-12 grid max-w-6xl gap-8 xl:grid-cols-2 xl:items-start">
+            <Calculator full quoteHref="#enquiry-form" />
             <LeadForm source="calculator" />
           </div>
 

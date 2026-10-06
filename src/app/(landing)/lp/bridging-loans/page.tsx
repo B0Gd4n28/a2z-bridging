@@ -46,7 +46,7 @@ export default function BridgingLandingPage() {
       infoText="A bridging loan is short-term finance secured against property, designed to bridge a gap. It is priced monthly (typically 0.55%–1.05%), completed in days rather than weeks, and repaid through a sale or refinance."
       infoItems={INFO_ITEMS}
       calculatorTitle="Start Your Bridging Enquiry"
-      calculatorText="Three short steps — tell us the amount, see your indicative estimate, and a named advisor calls you back the same day."
+      calculatorText="Run the numbers, then send us your details — both live on this page. A named advisor calls you back the same day."
       product="Bridging Loan"
       minAmount={50_000}
       variants={[{ label: 'Bridging Loan', rate: 0.0085 }]}

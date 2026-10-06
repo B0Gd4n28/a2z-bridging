@@ -808,6 +808,10 @@ export interface Lead {
    * Page or campaign that generated the lead
    */
   source?: string | null;
+  /**
+   * Honeypot field — should always be empty. Non-empty means the submission was spam.
+   */
+  company?: string | null;
   status?: ('new' | 'contacted' | 'qualified' | 'won' | 'lost') | null;
   updatedAt: string;
   createdAt: string;
@@ -1486,6 +1490,7 @@ export interface LeadsSelect<T extends boolean = true> {
   product?: T;
   message?: T;
   source?: T;
+  company?: T;
   status?: T;
   updatedAt?: T;
   createdAt?: T;

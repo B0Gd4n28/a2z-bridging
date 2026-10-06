@@ -80,7 +80,7 @@ export default async function HomePage() {
         }
         text="A whole-of-market panel and a named advisor on every case — so you get a decision in hours, not weeks, from people you can actually call back."
         primaryCta={{ label: 'Book a Free Consultation', href: '/contact' }}
-        secondaryCta={{ label: 'Request a Call Back', href: '/contact#callback' }}
+        secondaryCta={{ label: 'Call Now', href: SITE.phoneHref }}
       />
 
       <StatsBar stats={SITE.stats} />

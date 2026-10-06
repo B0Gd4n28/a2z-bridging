@@ -2,9 +2,9 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, CalendarCheck } from 'lucide-react'
+import { Menu, X, CalendarCheck, PhoneCall } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
-import { NAV_LINKS } from '@/lib/site'
+import { NAV_LINKS, SITE } from '@/lib/site'
 
 export const SiteHeader: React.FC = () => {
   const [open, setOpen] = useState(false)
@@ -55,6 +55,13 @@ export const SiteHeader: React.FC = () => {
         </nav>
 
         <div className="flex items-center gap-3">
+          <a
+            href={SITE.phoneHref}
+            className="hidden items-center gap-2 rounded-md border border-navy-100 px-4 py-2.5 text-sm font-semibold text-navy-900 transition-colors hover:border-brand-500/50 hover:text-brand-600 md:inline-flex"
+          >
+            <PhoneCall size={15} />
+            Call Now
+          </a>
           <Link
             href="/contact"
             className="hidden items-center gap-2 rounded-md bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-700 sm:inline-flex"
@@ -101,6 +108,13 @@ export const SiteHeader: React.FC = () => {
               <CalendarCheck size={15} />
               Book a Free Consultation
             </Link>
+            <a
+              href={SITE.phoneHref}
+              className="mt-3 flex items-center justify-center gap-2 rounded-md border border-navy-100 px-5 py-3 text-center text-sm font-semibold text-navy-900"
+            >
+              <PhoneCall size={15} />
+              Call Now
+            </a>
           </nav>
         </>
       )}

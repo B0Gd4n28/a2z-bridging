@@ -59,6 +59,14 @@ export const Hero: React.FC<{
                     <PhoneCall size={15} />
                     {secondaryCta.label}
                   </ScrollLink>
+                ) : secondaryCta.href.startsWith('tel:') || secondaryCta.href.startsWith('mailto:') ? (
+                  <a
+                    href={secondaryCta.href}
+                    className="inline-flex items-center gap-2 rounded-md border border-white/40 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur transition-colors hover:bg-white/10"
+                  >
+                    <PhoneCall size={15} />
+                    {secondaryCta.label}
+                  </a>
                 ) : (
                   <Link
                     href={secondaryCta.href}

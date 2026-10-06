@@ -46,7 +46,7 @@ export default function CommercialLandingPage() {
       infoText="Commercial mortgages fund owner-occupied premises and investment property alike — from offices and retail to industrial and mixed-use — with terms from 5 to 30 years."
       infoItems={INFO_ITEMS}
       calculatorTitle="Start Your Commercial Enquiry"
-      calculatorText="Three short steps — tell us the amount, see your indicative estimate, and our commercial team calls you back the same day."
+      calculatorText="Run the numbers, then send us your details — both live on this page. Our commercial team calls you back the same day."
       product="Commercial Finance"
       minAmount={25_000}
       variants={[

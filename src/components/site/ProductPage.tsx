@@ -7,6 +7,7 @@ import { ProcessSteps } from './ProcessSteps'
 import { FaqAccordion } from './FaqAccordion'
 import { CtaBanner } from './CtaBanner'
 import { SectionHeading } from './SectionHeading'
+import { SITE } from '@/lib/site'
 
 export const ProductPage: React.FC<{ product: Product }> = ({ product }) => {
   const faqJsonLd = {
@@ -28,7 +29,7 @@ export const ProductPage: React.FC<{ product: Product }> = ({ product }) => {
         title={product.heroTitle}
         text={product.heroText}
         primaryCta={{ label: 'Book a Free Consultation', href: '/contact' }}
-        secondaryCta={{ label: 'Request a Call Back', href: '/contact#callback' }}
+        secondaryCta={{ label: 'Call Now', href: SITE.phoneHref }}
       />
 
       <StatsBar stats={product.stats} />
