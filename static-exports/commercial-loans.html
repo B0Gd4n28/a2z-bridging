@@ -49,10 +49,14 @@ button{font-family:inherit;}
 @media(min-width:1024px){.stats .grid{grid-template-columns:repeat(4,1fr);}.stats .stat .v{font-size:27px;}}
 .trust{border-bottom:1px solid var(--navy-100);padding:30px 0;text-align:center;}
 .trust .label{font-size:11px;font-weight:600;text-transform:uppercase;color:rgba(20,32,74,.5);letter-spacing:.08em;}
-.lenders{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:26px;margin-top:22px;}
-.lenders img{height:26px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.65;}
+.lenders-viewport{overflow:hidden;margin-top:22px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+.lenders-viewport:hover .lenders-track{animation-play-state:paused;}
+.lenders-track{display:flex;gap:30px;align-items:center;width:max-content;animation:marquee 26s linear infinite;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.lenders-track img{height:26px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.65;flex:none;}
 .badges{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px;}
-.badge{display:inline-flex;align-items:center;border:1px solid var(--navy-100);background:var(--mist);border-radius:999px;padding:7px 16px;font-size:12px;font-weight:500;}
+.badge{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--navy-100);background:var(--mist);border-radius:999px;padding:7px 16px;font-size:12px;font-weight:500;}
+.badge svg{color:var(--brand-600);flex:none;}
 .section{padding:52px 0;}
 @media(min-width:1024px){.section{padding:76px 0;}}
 .section-head{max-width:640px;margin:0 auto;text-align:center;}
@@ -153,21 +157,31 @@ footer{background:var(--navy-900);color:#fff;}
 <section class="trust">
   <div class="container">
     <p class="label">Whole-of-Market Access To 85+ Lenders</p>
-    <div class="lenders">
-      <img src="https://a2z-bridging.vercel.app/lenders/together.svg" alt="Together">
-      <img src="https://a2z-bridging.vercel.app/lenders/barclays.png" alt="Barclays">
-      <img src="https://a2z-bridging.vercel.app/lenders/octopus.png" alt="Octopus Real Estate">
-      <img src="https://a2z-bridging.vercel.app/lenders/paragon.png" alt="Paragon">
-      <img src="https://a2z-bridging.vercel.app/lenders/skipton.png" alt="Skipton Building Society">
-      <img src="https://a2z-bridging.vercel.app/lenders/mt-finance.png" alt="MT Finance">
-      <img src="https://a2z-bridging.vercel.app/lenders/interbay.png" alt="InterBay Commercial">
-      <img src="https://a2z-bridging.vercel.app/lenders/mint.png" alt="Mint Bridging">
+    <div class="lenders-viewport">
+      <div class="lenders-track">
+        <img src="https://a2z-bridging.vercel.app/lenders/together.svg" alt="Together">
+        <img src="https://a2z-bridging.vercel.app/lenders/barclays.png" alt="Barclays">
+        <img src="https://a2z-bridging.vercel.app/lenders/octopus.png" alt="Octopus Real Estate">
+        <img src="https://a2z-bridging.vercel.app/lenders/paragon.png" alt="Paragon">
+        <img src="https://a2z-bridging.vercel.app/lenders/skipton.png" alt="Skipton Building Society">
+        <img src="https://a2z-bridging.vercel.app/lenders/mt-finance.png" alt="MT Finance">
+        <img src="https://a2z-bridging.vercel.app/lenders/interbay.png" alt="InterBay Commercial">
+        <img src="https://a2z-bridging.vercel.app/lenders/mint.png" alt="Mint Bridging">
+        <img src="https://a2z-bridging.vercel.app/lenders/together.svg" alt="" aria-hidden="true">
+        <img src="https://a2z-bridging.vercel.app/lenders/barclays.png" alt="" aria-hidden="true">
+        <img src="https://a2z-bridging.vercel.app/lenders/octopus.png" alt="" aria-hidden="true">
+        <img src="https://a2z-bridging.vercel.app/lenders/paragon.png" alt="" aria-hidden="true">
+        <img src="https://a2z-bridging.vercel.app/lenders/skipton.png" alt="" aria-hidden="true">
+        <img src="https://a2z-bridging.vercel.app/lenders/mt-finance.png" alt="" aria-hidden="true">
+        <img src="https://a2z-bridging.vercel.app/lenders/interbay.png" alt="" aria-hidden="true">
+        <img src="https://a2z-bridging.vercel.app/lenders/mint.png" alt="" aria-hidden="true">
+      </div>
     </div>
     <div class="badges">
-      <span class="badge">FCA Authorised · FRN 808769</span>
-      <span class="badge">NACFB Member</span>
-      <span class="badge">Trustpilot · 4.9★ (320+ reviews)</span>
-      <span class="badge">Google Reviews · 4.9★ (180+ reviews)</span>
+      <span class="badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>FCA Authorised · FRN 808769</span>
+      <span class="badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>NACFB Member</span>
+      <span class="badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L7.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L3.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>Trustpilot · 4.9★ (320+ reviews)</span>
+      <span class="badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L7.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L3.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>Google Reviews · 4.9★ (180+ reviews)</span>
     </div>
   </div>
 </section>
