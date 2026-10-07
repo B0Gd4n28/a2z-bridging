@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Link2Off, Gavel, Hammer, type LucideIcon } from 'lucide-react'
 import { CampaignLanding } from '@/components/site/CampaignLanding'
+import { ZohoLeadForm } from '@/components/site/ZohoLeadForm'
 
 export const metadata: Metadata = {
   title: { absolute: 'Bridging Loans — Terms the Same Day | A2Z Bridging' },
@@ -53,6 +54,7 @@ export default function BridgingLandingPage() {
       formSource="lp-bridging-loans"
       ctaTitle="Ready to Bridge the Gap?"
       ctaText="Talk to a named bridging advisor today — most cases get an initial answer within hours."
+      leadForm={<ZohoLeadForm />}
     />
   )
 }

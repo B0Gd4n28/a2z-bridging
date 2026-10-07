@@ -29,6 +29,8 @@ export type CampaignLandingProps = {
   formSource: string
   ctaTitle: string
   ctaText: string
+  /* Override the default internal enquiry form (e.g. with a client-supplied Zoho form). */
+  leadForm?: React.ReactNode
 }
 
 export const CampaignLanding: React.FC<CampaignLandingProps> = (p) => (
@@ -84,12 +86,14 @@ export const CampaignLanding: React.FC<CampaignLandingProps> = (p) => (
             <Calculator quoteHref="#enquiry-form" />
           </Reveal>
           <Reveal delay={150}>
-            <EnquiryWizard
-              product={p.product}
-              source={p.formSource}
-              variants={p.variants}
-              minAmount={p.minAmount}
-            />
+            {p.leadForm ?? (
+              <EnquiryWizard
+                product={p.product}
+                source={p.formSource}
+                variants={p.variants}
+                minAmount={p.minAmount}
+              />
+            )}
           </Reveal>
         </div>
       </div>
