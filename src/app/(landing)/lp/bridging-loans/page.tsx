@@ -54,7 +54,14 @@ export default function BridgingLandingPage() {
       formSource="lp-bridging-loans"
       ctaTitle="Ready to Bridge the Gap?"
       ctaText="Talk to a named bridging advisor today — most cases get an initial answer within hours."
-      leadForm={<ZohoLeadForm />}
+      leadForm={
+        <ZohoLeadForm
+          formName="WebToLeads268536000003406001"
+          xnQsjsdp="a661554d611b09e139046d0cfae1c89d852b32cffd0f27833ed15d38f8daad75"
+          xmIwtLD="975d2f8bd38ba2079e4134662728b69dd6d6807698d02e673ae2388f4384005c5887031a72292df2b2bd5bc7bab7e9f8"
+          descriptionLabel="Tell us about your deal"
+        />
+      }
     />
   )
 }

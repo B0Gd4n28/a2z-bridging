@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Store, Building2, Percent, type LucideIcon } from 'lucide-react'
 import { CampaignLanding } from '@/components/site/CampaignLanding'
+import { ZohoLeadForm } from '@/components/site/ZohoLeadForm'
 
 export const metadata: Metadata = {
   title: { absolute: 'Commercial Finance & Mortgages — Fast Decisions | A2Z Bridging' },
@@ -57,6 +58,14 @@ export default function CommercialLandingPage() {
       formSource="lp-commercial-loans"
       ctaTitle="Ready to Talk Commercial?"
       ctaText="Speak to a commercial finance advisor today — owner-occupied, investment, and semi-commercial all covered."
+      leadForm={
+        <ZohoLeadForm
+          formName="WebToLeads268536000003406008"
+          xnQsjsdp="3e774c730f9afc0bfa6bc261ec30700977989d8c6983accca5e03118018e130a"
+          xmIwtLD="197cb56e2a729bb7f9a0b9cb5714efa30f031aeaa5589a2b6de470cb2c4064cf05a656b68b169d78d2c51e3187928a55"
+          descriptionLabel="Tell us about your commercial loan"
+        />
+      }
     />
   )
 }

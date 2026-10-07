@@ -2,9 +2,9 @@
 
 import Script from 'next/script'
 import { ArrowRight, CheckCircle2, Lock } from 'lucide-react'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useId, useRef, useState } from 'react'
 
-/* Zoho CRM "Bridging Meta" web-to-lead form, provided directly by the client (7 Oct 2026).
+/* Zoho CRM web-to-lead forms, provided directly by the client (7 Oct 2026).
    Hidden field names/values below are Zoho's own tracking tokens — do not change them.
    Reimplemented as a React form (instead of Zoho's raw <script> embed) so it matches the
    site's styling and works reliably inside Next.js, but submits to the exact same Zoho
@@ -12,7 +12,6 @@ import React, { useEffect, useRef, useState } from 'react'
 
 const ZOHO_ENDPOINT = 'https://crm.zoho.eu/crm/WebToLeadForm'
 const RECAPTCHA_SITEKEY = '6LdCTOMtAAAAAKJqBMUK9zAKYF2KaGxHiOiyacpF'
-const RECAPTCHA_CALLBACK_NAME = 'onA2ZRecaptchaLoad'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -24,16 +23,23 @@ declare global {
         params: { sitekey: string; theme?: string; callback: () => void },
       ) => void
     }
-    [RECAPTCHA_CALLBACK_NAME]?: () => void
   }
 }
 
-export const ZohoLeadForm: React.FC = () => {
+const windowAsRecord = () => window as unknown as Record<string, (() => void) | undefined>
+
+export const ZohoLeadForm: React.FC<{
+  formName: string
+  xnQsjsdp: string
+  xmIwtLD: string
+  descriptionLabel?: string
+}> = ({ formName, xnQsjsdp, xmIwtLD, descriptionLabel = 'Tell us about your deal' }) => {
   const formRef = useRef<HTMLFormElement>(null)
   const recaptchaRef = useRef<HTMLDivElement>(null)
   const [captchaVerified, setCaptchaVerified] = useState(false)
   const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState<string | null>(null)
+  const recaptchaCallbackName = `onA2ZRecaptchaLoad_${useId().replace(/[^a-zA-Z0-9]/g, '')}`
 
   const renderRecaptcha = () => {
     if (window.grecaptcha && recaptchaRef.current && recaptchaRef.current.childElementCount === 0) {
@@ -48,11 +54,12 @@ export const ZohoLeadForm: React.FC = () => {
   useEffect(() => {
     // Google only finishes initialising grecaptcha some time after the <script> tag's own
     // load event — the explicit onload=... callback is the reliable way to know it's ready.
-    window[RECAPTCHA_CALLBACK_NAME] = renderRecaptcha
+    windowAsRecord()[recaptchaCallbackName] = renderRecaptcha
     if (window.grecaptcha) renderRecaptcha()
     return () => {
-      delete window[RECAPTCHA_CALLBACK_NAME]
+      delete windowAsRecord()[recaptchaCallbackName]
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const submit = async (e: React.FormEvent) => {
@@ -115,21 +122,21 @@ export const ZohoLeadForm: React.FC = () => {
   return (
     <>
       <Script
-        src={`https://www.google.com/recaptcha/api.js?onload=${RECAPTCHA_CALLBACK_NAME}&render=explicit`}
+        src={`https://www.google.com/recaptcha/api.js?onload=${recaptchaCallbackName}&render=explicit`}
         strategy="afterInteractive"
       />
       <form
         id="enquiry-form"
         ref={formRef}
         onSubmit={submit}
-        name="WebToLeads268536000003406001"
+        name={formName}
         acceptCharset="UTF-8"
         className="scroll-mt-24 rounded-2xl bg-white p-6 shadow-xl lg:p-10"
       >
         {/* Zoho tracking fields — required for the lead to reach the right Zoho form/account. */}
-        <input type="hidden" name="xnQsjsdp" value="a661554d611b09e139046d0cfae1c89d852b32cffd0f27833ed15d38f8daad75" />
+        <input type="hidden" name="xnQsjsdp" value={xnQsjsdp} />
         <input type="hidden" name="zc_gad" id="zc_gad" value="" />
-        <input type="hidden" name="xmIwtLD" value="975d2f8bd38ba2079e4134662728b69dd6d6807698d02e673ae2388f4384005c5887031a72292df2b2bd5bc7bab7e9f8" />
+        <input type="hidden" name="xmIwtLD" value={xmIwtLD} />
         <input type="hidden" name="actionType" value="TGVhZHM=" />
         <input type="hidden" name="returnURL" value="null" />
         {/* Honeypot — must stay empty; real users never see this field. */}
@@ -161,7 +168,7 @@ export const ZohoLeadForm: React.FC = () => {
           </div>
           <div>
             <label htmlFor="Description" className="text-sm font-semibold text-navy-900">
-              Tell us about your deal <span className="font-normal text-navy-900/50">(optional)</span>
+              {descriptionLabel} <span className="font-normal text-navy-900/50">(optional)</span>
             </label>
             <textarea id="Description" name="Description" rows={3} className={`mt-2 ${inputCls}`} />
           </div>
