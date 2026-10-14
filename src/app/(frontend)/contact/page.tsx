@@ -36,7 +36,7 @@ export default function ContactPage() {
                 <div>
                   <dt className="text-xs font-semibold uppercase tracking-widest text-navy-900/50">Email</dt>
                   <dd className="mt-1">
-                    <a href={`mailto:${SITE.email}`} className="font-serif text-lg font-bold text-navy-900 hover:text-brand-600">{SITE.email}</a>
+                    <a href={`mailto:${SITE.email}`} className="inline-block py-2 font-serif text-lg font-bold text-navy-900 hover:text-brand-600">{SITE.email}</a>
                   </dd>
                 </div>
               </div>

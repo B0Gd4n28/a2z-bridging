@@ -62,10 +62,10 @@ export const SiteFooter: React.FC = () => {
 
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-white/50">Products</p>
-          <ul className="mt-4 space-y-2.5">
+          <ul className="mt-3">
             {FOOTER_PRODUCTS.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="group inline-flex items-center gap-1.5 text-sm text-white/75 transition-colors hover:text-white">
+                <Link href={l.href} className="group inline-flex items-center gap-1.5 py-2.5 text-sm text-white/75 transition-colors hover:text-white">
                   <ArrowRight size={12} className="text-brand-500 opacity-0 transition-opacity group-hover:opacity-100" />
                   {l.label}
                 </Link>
@@ -76,10 +76,10 @@ export const SiteFooter: React.FC = () => {
 
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-white/50">Company</p>
-          <ul className="mt-4 space-y-2.5">
+          <ul className="mt-3">
             {FOOTER_COMPANY.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="group inline-flex items-center gap-1.5 text-sm text-white/75 transition-colors hover:text-white">
+                <Link href={l.href} className="group inline-flex items-center gap-1.5 py-2.5 text-sm text-white/75 transition-colors hover:text-white">
                   <ArrowRight size={12} className="text-brand-500 opacity-0 transition-opacity group-hover:opacity-100" />
                   {l.label}
                 </Link>
@@ -92,7 +92,7 @@ export const SiteFooter: React.FC = () => {
           <p className="text-xs font-semibold uppercase tracking-widest text-white/50">Get in Touch</p>
           <ul className="mt-4 space-y-3 text-sm text-white/75">
             <li>
-              <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-2.5 hover:text-white">
+              <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-2.5 py-2 hover:text-white">
                 <Mail size={15} className="shrink-0 text-brand-400" />
                 {SITE.email}
               </a>
@@ -110,7 +110,7 @@ export const SiteFooter: React.FC = () => {
       </div>
 
       <div className="relative border-t border-white/10">
-        <div className="container py-6">
+        <div className="container py-6 pb-28 lg:pb-6">
           <p className="text-xs leading-relaxed text-white/45">{SITE.disclaimer}</p>
           <p className="mt-3 text-xs text-white/45">
             © {new Date().getFullYear()} {SITE.legalName}. All rights reserved.

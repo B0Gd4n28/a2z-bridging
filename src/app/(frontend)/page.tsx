@@ -221,7 +221,7 @@ export default async function HomePage() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <Link href="/guides" className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:underline">
+            <Link href="/guides" className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-brand-600 hover:underline">
               View all guides <ArrowRight size={14} />
             </Link>
           </div>

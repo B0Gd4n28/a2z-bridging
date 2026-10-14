@@ -8,6 +8,7 @@ import { LandingHeader } from '@/components/site/LandingHeader'
 import { LandingFooter } from '@/components/site/LandingFooter'
 import { ScrollProgress } from '@/components/site/ScrollProgress'
 import { BackToTop } from '@/components/site/BackToTop'
+import { MobileCtaBar } from '@/components/site/MobileCtaBar'
 import { getServerSideURL } from '@/utilities/getURL'
 
 import '../(frontend)/globals.css'
@@ -33,6 +34,7 @@ export default function LandingLayout({ children }: { children: React.ReactNode 
         <LandingHeader />
         <main>{children}</main>
         <LandingFooter />
+        <MobileCtaBar />
         <BackToTop />
       </body>
     </html>

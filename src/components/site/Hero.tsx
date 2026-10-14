@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ArrowRight, PhoneCall } from 'lucide-react'
 import React from 'react'
 import { ScrollLink } from './ScrollLink'
+import { HeroVisual, Skyline } from './HeroVisual'
 
 type Cta = { label: string; href: string }
 
@@ -11,15 +12,18 @@ export const Hero: React.FC<{
   text?: string
   primaryCta?: Cta
   secondaryCta?: Cta
+  visualExample?: string
   children?: React.ReactNode
-}> = ({ eyebrow, title, text, primaryCta, secondaryCta, children }) => {
+}> = ({ eyebrow, title, text, primaryCta, secondaryCta, visualExample, children }) => {
   return (
     <section className="relative overflow-hidden bg-navy-900 text-white">
       {/* decorative layers */}
       <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
       <div className="animate-float-slow pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-navy-700/40 blur-[1px]" aria-hidden="true" />
       <div className="animate-float-slower pointer-events-none absolute -bottom-32 right-40 h-64 w-64 rounded-full bg-brand-600/10" aria-hidden="true" />
-      <div className="container relative py-20 lg:py-28">
+      <Skyline className="pointer-events-none absolute inset-x-0 bottom-0 h-24 w-full opacity-80 sm:h-32 lg:h-44" />
+      <div className="container relative pb-28 pt-16 sm:pb-32 lg:pb-40 lg:pt-24">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="max-w-2xl">
           {eyebrow && (
             <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.1em] text-white/70 backdrop-blur sm:tracking-[0.2em]">
@@ -30,7 +34,7 @@ export const Hero: React.FC<{
           <h1 className="font-serif text-4xl font-bold leading-tight lg:text-5xl">{title}</h1>
           {text && <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 lg:text-lg">{text}</p>}
           {(primaryCta || secondaryCta) && (
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4 [&>a]:w-full [&>a]:justify-center sm:[&>a]:w-auto">
               {primaryCta && (
                 primaryCta.href.startsWith('#') ? (
                   <ScrollLink
@@ -79,6 +83,8 @@ export const Hero: React.FC<{
               )}
             </div>
           )}
+        </div>
+        <HeroVisual example={visualExample} />
         </div>
         {children}
       </div>

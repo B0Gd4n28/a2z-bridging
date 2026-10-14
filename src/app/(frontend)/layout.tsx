@@ -9,6 +9,7 @@ import { SiteFooter } from '@/components/site/SiteFooter'
 import { SiteHeader } from '@/components/site/SiteHeader'
 import { ScrollProgress } from '@/components/site/ScrollProgress'
 import { BackToTop } from '@/components/site/BackToTop'
+import { MobileCtaBar } from '@/components/site/MobileCtaBar'
 import { Providers } from '@/providers'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
@@ -70,6 +71,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <SiteHeader />
           <main>{children}</main>
           <SiteFooter />
+          <MobileCtaBar fallbackHref="/quote#enquiry-form" />
           <BackToTop />
         </Providers>
       </body>

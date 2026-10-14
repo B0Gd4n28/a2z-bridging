@@ -32,7 +32,11 @@ button{font-family:inherit;}
 .btn-outline:hover{border-color:var(--brand-500);color:var(--brand-600);}
 .btn-outline-light{border:1px solid rgba(255,255,255,.4);color:#fff;background:transparent;}
 .btn-outline-light:hover{background:rgba(255,255,255,.1);}
-@media(max-width:600px){.header-actions .btn-outline{display:none;}}
+.header-actions .call-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;gap:8px;}
+.header-actions .call-icon .lbl{display:none;}
+.header-actions .btn-primary{white-space:nowrap;min-height:44px;}
+.header-actions .btn-primary .long{display:none;}
+@media(min-width:601px){.header-actions .call-icon{width:auto;height:auto;padding:12px 22px;}.header-actions .call-icon .lbl{display:inline;}.header-actions .btn-primary .short{display:none;}.header-actions .btn-primary .long{display:inline;}}
 .hero{position:relative;overflow:hidden;background:var(--navy-900);color:#fff;padding:64px 0;}
 .hero .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);padding:6px 16px;border-radius:999px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;margin-bottom:16px;}
 .hero .dot{width:6px;height:6px;border-radius:50%;background:var(--brand-500);flex:none;}
@@ -119,6 +123,37 @@ footer{background:var(--navy-900);color:#fff;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:22px 0;font-size:11px;color:rgba(255,255,255,.45);line-height:1.6;}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:none;}
+.skyline{position:absolute;left:0;right:0;bottom:0;width:100%;height:96px;opacity:.8;pointer-events:none;}
+.hero{padding:56px 0 120px;}
+.hero .container{position:relative;}
+.hero-grid2{display:grid;gap:40px;align-items:center;}
+.hero .ctas{flex-direction:column;gap:12px;}
+.hero .ctas .btn{width:100%;justify-content:center;}
+.hero-visual{display:none;}
+@keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+.hv-glow{position:absolute;left:32px;right:32px;top:40px;height:256px;border-radius:50%;background:rgba(206,58,42,.2);filter:blur(48px);}
+.hv-card{position:absolute;left:50%;top:32px;width:320px;transform:translateX(-50%);background:#fff;color:var(--navy-900);border-radius:16px;padding:24px;box-shadow:0 25px 50px rgba(13,20,46,.4);}
+.hv-row{display:flex;align-items:center;justify-content:space-between;}
+.hv-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.18em;color:rgba(20,32,74,.45);}
+.hv-pill{display:inline-flex;align-items:center;gap:4px;background:#ecfdf5;color:#047857;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:600;}
+.hv-amount{margin-top:16px;font-family:'Montserrat',Arial,sans-serif;font-size:36px;font-weight:700;}
+.hv-sub{font-size:12px;color:rgba(20,32,74,.5);}
+.hv-bar{margin-top:20px;height:8px;border-radius:999px;background:var(--navy-100);overflow:hidden;}
+.hv-fill{height:100%;border-radius:999px;background:var(--brand-600);}
+.hv-meta{margin-top:8px;display:flex;justify-content:space-between;font-size:12px;color:rgba(20,32,74,.55);}
+.hv-note{margin-top:20px;border-top:1px solid var(--navy-100);padding-top:12px;font-size:10px;line-height:1.4;color:rgba(20,32,74,.4);}
+.hv-chip{position:absolute;display:flex;align-items:center;gap:12px;background:#fff;color:var(--navy-900);border-radius:12px;padding:12px 16px;box-shadow:0 20px 40px rgba(13,20,46,.3);animation:floaty 6s ease-in-out infinite;}
+.hv-chip .ci{width:36px;height:36px;border-radius:8px;background:var(--brand-100);color:var(--brand-600);display:flex;align-items:center;justify-content:center;flex:none;}
+.hv-chip b{display:block;font-size:14px;line-height:1.2;}
+.hv-chip small{display:block;font-size:12px;color:rgba(20,32,74,.55);}
+.hv-c1{left:-8px;top:0;}.hv-c2{right:-8px;top:312px;animation-delay:1.2s;}.hv-c3{left:0;bottom:16px;animation-delay:2.4s;}
+.mobile-cta{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;gap:12px;padding:12px 12px calc(12px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);border-top:1px solid var(--navy-100);box-shadow:0 -8px 24px rgba(13,20,46,.12);transform:translateY(100%);transition:transform .3s;}
+.mobile-cta.show{transform:none;}
+.mobile-cta .btn{flex:1;justify-content:center;min-height:48px;}
+footer .footer-bottom{padding-bottom:112px;}
+@media(min-width:640px){.hero .ctas{flex-direction:row;gap:16px;}.hero .ctas .btn{width:auto;}.skyline{height:128px;}.hero{padding-bottom:130px;}}
+@media(min-width:1024px){.hero{padding:96px 0 150px;}.hero-grid2{grid-template-columns:1.1fr .9fr;}.hero-visual{display:block;position:relative;height:420px;width:100%;max-width:480px;margin:0 auto;}.skyline{height:176px;}.mobile-cta{display:none;}footer .footer-bottom{padding-bottom:22px;}}
+@media(prefers-reduced-motion:reduce){.hv-chip{animation:none;}.reveal{opacity:1;transform:none;transition:none;}html{scroll-behavior:auto;}}
 </style>
 </head>
 <body>
@@ -127,20 +162,37 @@ footer{background:var(--navy-900);color:#fff;}
   <div class="container row">
     <span class="logo">A2Z <span class="bar">|</span> BRIDGING</span>
     <div class="header-actions">
-      <a href="tel:02077800130" class="btn btn-outline">Call Now</a>
-      <a href="#enquiry-form" class="btn btn-primary">Get Your Quote</a>
+      <a href="tel:02077800130" class="btn btn-outline call-icon" aria-label="Call now"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2a9 9 0 0 1 9 9"/><path d="M13 6a5 5 0 0 1 5 5"/><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg><span class="lbl">Call Now</span></a>
+      <a href="#enquiry-form" class="btn btn-primary"><span class="short">Get Quote</span><span class="long">Get Your Quote</span></a>
     </div>
   </div>
 </header>
 
 <section class="hero">
-  <div class="container">
+  <svg class="skyline" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><defs><linearGradient id="sky-a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#27397b" stop-opacity=".55"/><stop offset="1" stop-color="#27397b" stop-opacity=".15"/></linearGradient><linearGradient id="sky-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2a5e" stop-opacity=".9"/><stop offset="1" stop-color="#14204a" stop-opacity=".9"/></linearGradient></defs><g fill="url(#sky-a)"><rect x="20" y="110" width="70" height="110"/><rect x="110" y="70" width="56" height="150"/><rect x="190" y="125" width="90" height="95"/><rect x="300" y="55" width="64" height="165"/><rect x="386" y="100" width="80" height="120"/><rect x="490" y="40" width="58" height="180"/><rect x="570" y="95" width="96" height="125"/><rect x="690" y="65" width="62" height="155"/><rect x="776" y="115" width="84" height="105"/><rect x="884" y="50" width="66" height="170"/><rect x="974" y="105" width="88" height="115"/><rect x="1086" y="75" width="70" height="145"/></g><g fill="url(#sky-b)"><rect x="0" y="150" width="120" height="70"/><rect x="140" y="130" width="76" height="90"/><rect x="240" y="160" width="100" height="60"/><rect x="365" y="120" width="70" height="100"/><rect x="460" y="155" width="110" height="65"/><rect x="596" y="135" width="74" height="85"/><rect x="696" y="165" width="96" height="55"/><rect x="818" y="125" width="72" height="95"/><rect x="916" y="158" width="104" height="62"/><rect x="1046" y="138" width="154" height="82"/></g><g fill="#dc4433" opacity=".7"><rect x="316" y="80" width="6" height="8"/><rect x="332" y="96" width="6" height="8"/><rect x="504" y="64" width="6" height="8"/><rect x="520" y="88" width="6" height="8"/><rect x="704" y="90" width="6" height="8"/><rect x="900" y="76" width="6" height="8"/><rect x="916" y="100" width="6" height="8"/><rect x="126" y="96" width="6" height="8"/></g></svg>
+  <div class="container hero-grid2">
+    <div class="hero-copy">
     <p class="eyebrow"><span class="dot"></span>Whole-of-Market Bridging Finance</p>
     <h1>Bridging Finance <span class="hl">Without</span> the Wait</h1>
     <p class="lead">Complete a purchase, cover a chain break, or beat an auction deadline — with a whole-of-market panel and a named advisor who gets you a decision in hours, not weeks.</p>
     <div class="ctas">
       <a href="#enquiry-form" class="btn btn-primary">Get Your Quote →</a>
       <a href="tel:02077800130" class="btn btn-outline-light">Call Now</a>
+    </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hv-glow"></div>
+      <div class="hv-card">
+        <div class="hv-row"><span class="hv-label">Indicative terms</span><span class="hv-pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>In principle</span></div>
+        <p class="hv-amount">£450,000</p>
+        <p class="hv-sub">Bridging loan · 9 months</p>
+        <div class="hv-bar"><div class="hv-fill" style="width:64%"></div></div>
+        <div class="hv-meta"><span>64% LTV</span><span>£703,125 property</span></div>
+        <p class="hv-note">Illustrative example only — not an offer. Subject to underwriting and valuation.</p>
+      </div>
+      <div class="hv-chip hv-c1"><span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg></span><span><b>24hr decision</b><small>Average turnaround</small></span></div>
+      <div class="hv-chip hv-c2"><span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><span><b>Whole of market</b><small>85+ lenders compared</small></span></div>
+      <div class="hv-chip hv-c3"><span class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span><span><b>FCA authorised</b><small>FRN 808769</small></span></div>
     </div>
   </div>
 </section>
@@ -195,17 +247,17 @@ footer{background:var(--navy-900);color:#fff;}
     </div>
     <div class="info-grid">
       <div class="reveal info-card">
-        <span class="icon">CB</span>
+        <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7"/><path d="M15 7h2a5 5 0 0 1 4 8"/><line x1="8" x2="12" y1="12" y2="12"/><line x1="2" x2="22" y1="2" y2="22"/></svg></span>
         <h3>Chain Breaks &amp; Fast Purchases</h3>
         <p>Buy your next property before the current one sells. A bridging loan covers the gap so you never lose the home you want to a slow chain.</p>
       </div>
       <div class="reveal info-card">
-        <span class="icon">AD</span>
+        <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 13-8.381 8.38a1 1 0 0 1-3.001-3l8.384-8.381"/><path d="m16 16 6-6"/><path d="m21.5 10.5-8-8"/><path d="m8 8 6-6"/><path d="m8.5 7.5 8 8"/></svg></span>
         <h3>Auction Deadlines</h3>
         <p>Won at auction? You have 28 days to complete or lose your deposit. Bridging finance is built for exactly this. Our fastest case completed in 48 hours.</p>
       </div>
       <div class="reveal info-card">
-        <span class="icon">RF</span>
+        <span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></svg></span>
         <h3>Refurbishment &amp; Capital Raise</h3>
         <p>Fund a light refurb before refinancing onto a term mortgage, or raise quick capital against property for a business opportunity.</p>
       </div>
@@ -260,7 +312,7 @@ footer{background:var(--navy-900);color:#fff;}
         </div>
       </div>
 
-      <div class="reveal">
+      <div class="reveal" id="enquiry-form">
         <!-- Zoho CRM web-to-lead form (Bridging). Hidden tracking fields are required — do not edit. -->
         <form id="zoho-form" class="card" name="WebToLeads268536000003406001" accept-charset="UTF-8">
           <input type="hidden" name="xnQsjsdp" value="a661554d611b09e139046d0cfae1c89d852b32cffd0f27833ed15d38f8daad75">
@@ -334,6 +386,11 @@ footer{background:var(--navy-900);color:#fff;}
     <p style="margin-top:10px;">© 2026 A2Z Bridging Ltd. All rights reserved.</p>
   </div>
 </footer>
+
+<div id="mobile-cta" class="mobile-cta" role="region" aria-label="Quick actions" aria-hidden="true">
+  <a href="tel:02077800130" class="btn btn-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--brand-600)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2a9 9 0 0 1 9 9"/><path d="M13 6a5 5 0 0 1 5 5"/><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>Call Now</a>
+  <a href="#enquiry-form" class="btn btn-primary">Get Your Quote →</a>
+</div>
 
 <!-- TODO (Harsh): insert GA4 / GTM tags here -->
 
@@ -470,6 +527,22 @@ if('IntersectionObserver' in window){
         submitBtn.disabled = false; submitBtn.textContent = 'Get My Quote →';
       });
   });
+})();
+
+(function(){
+  var bar = document.getElementById('mobile-cta');
+  var form = document.getElementById('enquiry-form');
+  if(!bar || !form) return;
+  var scrolled = false, inView = false;
+  function update(){
+    var show = scrolled && !inView;
+    bar.classList.toggle('show', show);
+    bar.setAttribute('aria-hidden', show ? 'false' : 'true');
+  }
+  window.addEventListener('scroll', function(){ scrolled = window.scrollY > 320; update(); }, {passive:true});
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){ inView = e[0].isIntersecting; update(); }, {threshold:.15}).observe(form);
+  }
 })();
 </script>
 </body>

@@ -12,7 +12,7 @@ import { getMediaUrl } from '@/utilities/getMediaUrl'
 export const revalidate = 600
 
 export const metadata: Metadata = {
-  title: 'Bridging Finance Specialists — Meet the Team | A2Z Bridging',
+  title: { absolute: 'Bridging Finance Specialists — Meet the Team | A2Z Bridging' },
   description:
     "We're a London team of credit brokers with the energy of a start-up and the lending experience of a high-street bank. No call centre, no rotating queues.",
   alternates: { canonical: '/team' },

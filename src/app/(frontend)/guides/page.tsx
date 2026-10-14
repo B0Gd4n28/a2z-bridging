@@ -58,7 +58,7 @@ export default async function Page() {
 
 export function generateMetadata(): Metadata {
   return {
-    title: 'Guides & Insights | A2Z Bridging',
+    title: { absolute: 'Guides & Insights | A2Z Bridging' },
     description:
       'Plain-English guides on bridging, auction, and commercial finance — written by the advisors who arrange these deals every day.',
   }

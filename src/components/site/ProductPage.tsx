@@ -30,6 +30,7 @@ export const ProductPage: React.FC<{ product: Product }> = ({ product }) => {
         text={product.heroText}
         primaryCta={{ label: 'Book a Free Consultation', href: '/contact' }}
         secondaryCta={{ label: 'Call Now', href: SITE.phoneHref }}
+        visualExample={product.slug}
       />
 
       <StatsBar stats={product.stats} />

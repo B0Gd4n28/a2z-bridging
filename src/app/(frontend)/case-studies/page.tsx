@@ -8,7 +8,7 @@ import { SectionHeading } from '@/components/site/SectionHeading'
 export const revalidate = 600
 
 export const metadata: Metadata = {
-  title: 'Bridging Finance Case Studies | A2Z Bridging',
+  title: { absolute: 'Bridging Finance Case Studies | A2Z Bridging' },
   description:
     'Real deals, real deadlines. Every case study is a completed A2Z deal, with the loan amount, LTV and timeline.',
   alternates: { canonical: '/case-studies' },

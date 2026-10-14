@@ -20,7 +20,7 @@ export const LandingFooter: React.FC = () => (
 
       <ul className="space-y-3 text-sm text-white/75">
         <li>
-          <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-2.5 hover:text-white">
+          <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-2.5 py-2 hover:text-white">
             <Mail size={15} className="shrink-0 text-brand-400" />
             {SITE.email}
           </a>
@@ -33,7 +33,7 @@ export const LandingFooter: React.FC = () => (
     </div>
 
     <div className="border-t border-white/10">
-      <div className="container py-6">
+      <div className="container py-6 pb-28 lg:pb-6">
         <p className="text-xs leading-relaxed text-white/45">{SITE.disclaimer}</p>
         <p className="mt-3 text-xs text-white/45">
           © {new Date().getFullYear()} {SITE.legalName}. All rights reserved.

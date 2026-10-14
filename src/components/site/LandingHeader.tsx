@@ -1,6 +1,7 @@
 'use client'
 
 import { ArrowRight, PhoneCall } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import { ScrollLink } from './ScrollLink'
 import { SITE } from '@/lib/site'
@@ -8,6 +9,7 @@ import { SITE } from '@/lib/site'
 /* Minimal conversion-focused header for standalone landing pages — no site navigation. */
 export const LandingHeader: React.FC = () => {
   const [scrolled, setScrolled] = useState(false)
+  const hasForm = !usePathname()?.endsWith('/thank-you')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -30,18 +32,22 @@ export const LandingHeader: React.FC = () => {
         <div className="flex items-center gap-3">
           <a
             href={SITE.phoneHref}
-            className="hidden items-center gap-2 rounded-md border border-navy-100 px-4 py-2.5 text-sm font-semibold text-navy-900 transition-colors hover:border-brand-500/50 hover:text-brand-600 sm:inline-flex"
+            aria-label="Call now"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-navy-100 text-navy-900 transition-colors hover:border-brand-500/50 hover:text-brand-600 sm:h-auto sm:w-auto sm:gap-2 sm:px-4 sm:py-2.5 sm:text-sm sm:font-semibold"
           >
-            <PhoneCall size={14} />
-            Call Now
+            <PhoneCall size={16} />
+            <span className="hidden sm:inline">Call Now</span>
           </a>
-          <ScrollLink
-            targetId="enquiry-form"
-            className="inline-flex items-center gap-2 rounded-md bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
-          >
-            Get Your Quote
-            <ArrowRight size={14} />
-          </ScrollLink>
+          {hasForm && (
+            <ScrollLink
+              targetId="enquiry-form"
+              className="inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-md bg-brand-600 px-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700 sm:px-5"
+            >
+              <span className="sm:hidden">Get Quote</span>
+              <span className="hidden sm:inline">Get Your Quote</span>
+              <ArrowRight size={14} />
+            </ScrollLink>
+          )}
         </div>
       </div>
     </header>

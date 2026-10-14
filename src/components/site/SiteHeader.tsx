@@ -34,7 +34,7 @@ export const SiteHeader: React.FC = () => {
       className={`sticky top-0 z-50 bg-white transition-shadow ${scrolled ? 'shadow-md' : 'border-b border-navy-100'}`}
     >
       <div className="container flex h-16 items-center justify-between gap-4 lg:h-[72px]">
-        <Link href="/" className="flex shrink-0 items-baseline gap-1.5 font-serif text-lg font-extrabold tracking-tight text-navy-900 lg:text-xl">
+        <Link href="/" className="flex min-h-11 shrink-0 items-center gap-1.5 font-serif text-lg font-extrabold tracking-tight text-navy-900 lg:text-xl">
           <span>A2Z</span>
           <span className="text-brand-600">|</span>
           <span>BRIDGING</span>
@@ -57,10 +57,11 @@ export const SiteHeader: React.FC = () => {
         <div className="flex items-center gap-3">
           <a
             href={SITE.phoneHref}
-            className="hidden items-center gap-2 rounded-md border border-navy-100 px-4 py-2.5 text-sm font-semibold text-navy-900 transition-colors hover:border-brand-500/50 hover:text-brand-600 md:inline-flex"
+            aria-label="Call now"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-navy-100 text-navy-900 transition-colors hover:border-brand-500/50 hover:text-brand-600 md:h-auto md:w-auto md:gap-2 md:px-4 md:py-2.5 md:text-sm md:font-semibold"
           >
-            <PhoneCall size={15} />
-            Call Now
+            <PhoneCall size={16} />
+            <span className="hidden md:inline">Call Now</span>
           </a>
           <Link
             href="/contact"

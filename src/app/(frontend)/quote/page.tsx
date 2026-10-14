@@ -92,7 +92,7 @@ export default function QuotePage() {
             <p className="mt-8 inline-flex items-center gap-2 text-sm text-white/60">
               <Mail size={14} className="text-brand-400" />
               Prefer email?{' '}
-              <a href={`mailto:${SITE.email}`} className="font-semibold text-white underline">
+              <a href={`mailto:${SITE.email}`} className="inline-block py-2 font-semibold text-white underline">
                 {SITE.email}
               </a>
             </p>

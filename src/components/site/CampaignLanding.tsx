@@ -31,6 +31,8 @@ export type CampaignLandingProps = {
   ctaText: string
   /* Override the default internal enquiry form (e.g. with a client-supplied Zoho form). */
   leadForm?: React.ReactNode
+  /* Product slug used for the illustrative hero card (see HeroVisual). */
+  visualExample?: string
 }
 
 export const CampaignLanding: React.FC<CampaignLandingProps> = (p) => (
@@ -46,6 +48,7 @@ export const CampaignLanding: React.FC<CampaignLandingProps> = (p) => (
       text={p.heroText}
       primaryCta={{ label: 'Get Your Quote', href: '#enquiry-form' }}
       secondaryCta={{ label: 'Call Now', href: SITE.phoneHref }}
+      visualExample={p.visualExample}
     />
 
     <StatsBar stats={p.stats} />

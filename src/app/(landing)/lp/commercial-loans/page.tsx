@@ -56,6 +56,7 @@ export default function CommercialLandingPage() {
         { label: 'Semi-commercial', rate: 0.007 },
       ]}
       formSource="lp-commercial-loans"
+      visualExample="commercial-mortgages"
       ctaTitle="Ready to Talk Commercial?"
       ctaText="Speak to a commercial finance advisor today — owner-occupied, investment, and semi-commercial all covered."
       leadForm={

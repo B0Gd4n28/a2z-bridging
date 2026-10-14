@@ -88,8 +88,12 @@ export const TestimonialCarousel: React.FC<{ items: TestimonialItem[] }> = ({ it
                 setIndex(i)
                 scrollTo(i)
               }}
-              className={`h-2 rounded-full transition-all ${i === index ? 'w-6 bg-brand-600' : 'w-2 bg-navy-100'}`}
-            />
+              className="group flex h-6 min-w-6 items-center justify-center"
+            >
+              <span
+                className={`block h-2 rounded-full transition-all ${i === index ? 'w-6 bg-brand-600' : 'w-2 bg-navy-100 group-hover:bg-brand-400'}`}
+              />
+            </button>
           ))}
         </div>
         <button
