@@ -9,7 +9,7 @@ The admin panel (CMS) controls all of the site's dynamic content: articles (Guid
 | What | Where |
 |---|---|
 | **CMS address** | `http://localhost:3000/admin` (local) · `https://a2z-bridging.vercel.app/admin` (live now) · `https://a2zbridging.co.uk/admin` (once the custom domain is connected) |
-| **First visit** | On your first visit you'll be asked to create the administrator account (email + password) |
+| **Login** | An administrator account already exists (`admin@a2zbridging.co.uk`). Change its password under *avatar (top right) → Account* after the first login |
 | **New users** | Admin → **Admin** group → **Users** → *Create New* |
 
 ---
@@ -63,13 +63,15 @@ ically
 
 ## 4. How to add a case study
 
-1. **Case Studies** → **Create New**
-2. A title describing the outcome (e.g. *"Completing an Auction Purchase in 9 Days"*)
-3. Choose a **Category** (Bridging / Auction / BTL / Development / Commercial / Business)
-4. Fill in **Stats**: amount, LTV, term, time to completion — these show as large figures on the page
-5. Write the 3 sections: **Challenge** (the problem), **Solution** (what you did), **Outcome** (the result)
-6. Link the **Advisor** who handled the case (from Team)
-7. Save — it appears automatically on `/case-studies`
+1. **Case Studies** → **Create New** (or open an existing one — the 29 studies from the old site are already imported)
+2. **Title** describing the outcome (e.g. *"£390,000 Bridging Loan Completed in 7 Days, Northwood"*), then choose a **Category**
+3. **Stats**: amount, LTV, term, time to completion — shown as large figures in the page header
+4. **Intro** (the lead paragraph) and **Location**
+5. **Deal snapshot**: label/value rows (Property Value, Product, Rate…) shown in the side panel
+6. **Article sections**: add one per block (e.g. *The Client Scenario*, *What Could Have Gone Wrong*, *The Solution*). Write paragraphs separated by a blank line; put bullet points one per line. Set **Tone** to *Risk* or *Solution* for the coloured boxes
+7. **Outcome figures** (value + label cards) and **FAQs** (these also feed Google FAQ rich results)
+8. Sidebar: **Meta title / Meta description** (SEO). Optionally link the **Advisor**
+9. Save — it appears automatically on `/case-studies` (list refreshes within ~10 minutes)
 
 ---
 
