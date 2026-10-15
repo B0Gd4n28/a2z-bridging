@@ -132,6 +132,100 @@ html {
   mask-image: radial-gradient(ellipse 90% 80% at 50% 0%, black 30%, transparent 75%);
 }
 
+/* Entrance + attention animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.anim-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-d1 { animation-delay: 0.08s; }
+.anim-d2 { animation-delay: 0.18s; }
+.anim-d3 { animation-delay: 0.3s; }
+.anim-d4 { animation-delay: 0.42s; }
+
+@keyframes sheen {
+  0% {
+    transform: translateX(-130%) skewX(-18deg);
+  }
+
+  45%,
+  100% {
+    transform: translateX(330%) skewX(-18deg);
+  }
+}
+
+.btn-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-sheen::after {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 35%;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 38%), transparent);
+  transform: translateX(-130%) skewX(-18deg);
+  animation: sheen 4.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgb(206 58 42 / 50%);
+  }
+
+  70%,
+  100% {
+    box-shadow: 0 0 0 12px rgb(206 58 42 / 0%);
+  }
+}
+
+.pulse-ring {
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+
+/* Mobile menu slide-over */
+@keyframes menu-slide {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+@keyframes menu-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.menu-panel {
+  animation: menu-slide 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.menu-backdrop {
+  animation: menu-fade 0.25s ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -145,7 +239,12 @@ html {
 
   .marquee-track,
   .animate-float-slow,
-  .animate-float-slower {
+  .animate-float-slower,
+  .anim-fade-up,
+  .btn-sheen::after,
+  .pulse-ring,
+  .menu-panel,
+  .menu-backdrop {
     animation: none;
   }
 }

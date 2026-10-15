@@ -26,20 +26,20 @@ export const Hero: React.FC<{
         <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="max-w-2xl">
           {eyebrow && (
-            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.1em] text-white/70 backdrop-blur sm:tracking-[0.2em]">
+            <p className="anim-fade-up mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.1em] text-white/70 backdrop-blur sm:tracking-[0.2em]">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-500" aria-hidden="true" />
               {eyebrow}
             </p>
           )}
-          <h1 className="font-serif text-4xl font-bold leading-tight lg:text-5xl">{title}</h1>
-          {text && <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 lg:text-lg">{text}</p>}
+          <h1 className="anim-fade-up anim-d1 font-serif text-4xl font-bold leading-tight lg:text-5xl">{title}</h1>
+          {text && <p className="anim-fade-up anim-d2 mt-5 max-w-xl text-base leading-relaxed text-white/75 lg:text-lg">{text}</p>}
           {(primaryCta || secondaryCta) && (
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4 [&>a]:w-full [&>a]:justify-center sm:[&>a]:w-auto">
+            <div className="anim-fade-up anim-d3 mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4 [&>a]:w-full [&>a]:justify-center sm:[&>a]:w-auto">
               {primaryCta && (
                 primaryCta.href.startsWith('#') ? (
                   <ScrollLink
                     targetId={primaryCta.href.slice(1)}
-                    className="inline-flex items-center gap-2 rounded-md bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition-all hover:-translate-y-0.5 hover:bg-brand-700"
+                    className="btn-sheen inline-flex min-h-12 items-center gap-2 rounded-md bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition-all hover:-translate-y-0.5 hover:bg-brand-700"
                   >
                     {primaryCta.label}
                     <ArrowRight size={16} />
@@ -47,7 +47,7 @@ export const Hero: React.FC<{
                 ) : (
                   <Link
                     href={primaryCta.href}
-                    className="inline-flex items-center gap-2 rounded-md bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition-all hover:-translate-y-0.5 hover:bg-brand-700"
+                    className="btn-sheen inline-flex min-h-12 items-center gap-2 rounded-md bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition-all hover:-translate-y-0.5 hover:bg-brand-700"
                   >
                     {primaryCta.label}
                     <ArrowRight size={16} />

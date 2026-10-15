@@ -15,6 +15,7 @@ import { Leads } from './collections/Leads'
 import { TeamMembers } from './collections/TeamMembers'
 import { Testimonials } from './collections/Testimonials'
 import { CaseStudies } from './collections/CaseStudies'
+import { LandingPages } from './collections/LandingPages'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { plugins } from './plugins'
@@ -89,7 +90,7 @@ export default buildConfig({
           url: process.env.DATABASE_URL || '',
         },
       }),
-  collections: [Pages, Posts, Media, Categories, Users, Leads, TeamMembers, Testimonials, CaseStudies],
+  collections: [Pages, Posts, Media, Categories, Users, Leads, TeamMembers, Testimonials, CaseStudies, LandingPages],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [...plugins, ...blobStoragePlugin],

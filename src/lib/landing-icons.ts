@@ -1,0 +1,47 @@
+import {
+  BadgePercent,
+  Banknote,
+  Building2,
+  Clock,
+  Gavel,
+  Globe2,
+  Hammer,
+  Handshake,
+  Home,
+  KeyRound,
+  Landmark,
+  Link2Off,
+  Percent,
+  ShieldCheck,
+  Store,
+  TrendingUp,
+  UserRound,
+  Users,
+  Zap,
+  type LucideIcon,
+} from 'lucide-react'
+
+/* Icons an editor can pick for landing-page info cards (CMS select -> component). */
+export const LANDING_ICONS: Record<string, LucideIcon> = {
+  ShieldCheck,
+  Zap,
+  Clock,
+  Percent,
+  BadgePercent,
+  Banknote,
+  Building2,
+  Store,
+  Home,
+  KeyRound,
+  Hammer,
+  Gavel,
+  Link2Off,
+  Landmark,
+  TrendingUp,
+  Handshake,
+  Globe2,
+  UserRound,
+  Users,
+}
+
+export const LANDING_ICON_OPTIONS = Object.keys(LANDING_ICONS).map((k) => ({ label: k, value: k }))

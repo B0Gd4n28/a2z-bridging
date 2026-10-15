@@ -76,6 +76,7 @@ export interface Config {
     'team-members': TeamMember;
     testimonials: Testimonial;
     'case-studies': CaseStudy;
+    'landing-pages': LandingPage;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -102,6 +103,7 @@ export interface Config {
     'team-members': TeamMembersSelect<false> | TeamMembersSelect<true>;
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
     'case-studies': CaseStudiesSelect<false> | CaseStudiesSelect<true>;
+    'landing-pages': LandingPagesSelect<false> | LandingPagesSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -888,6 +890,119 @@ export interface CaseStudy {
   createdAt: string;
 }
 /**
+ * Standalone ad landing pages (no site menu) published at /lp/<slug>. Tick "Published" to make a page live. Existing pages /lp/bridging-loans and /lp/commercial-loans are built in code and are not listed here.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "landing-pages".
+ */
+export interface LandingPage {
+  id: number;
+  /**
+   * Internal name, e.g. "Meta Ads — Development Loans".
+   */
+  title: string;
+  /**
+   * Small badge above the headline.
+   */
+  eyebrow: string;
+  titlePre: string;
+  /**
+   * Shown in red.
+   */
+  titleHighlight: string;
+  titlePost?: string | null;
+  heroText: string;
+  /**
+   * Decides which illustrative example card appears beside the headline on desktop.
+   */
+  exampleKey?:
+    | (
+        | 'bridging-loans'
+        | 'buy-to-let-mortgages'
+        | 'development-loans'
+        | 'property-auction-finance'
+        | 'commercial-mortgages'
+        | 'business-loans'
+      )
+    | null;
+  stats?:
+    | {
+        /**
+         * e.g. £50k–£10m
+         */
+        value: string;
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
+  infoEyebrow: string;
+  infoTitle: string;
+  infoText: string;
+  infoItems?:
+    | {
+        icon:
+          | 'ShieldCheck'
+          | 'Zap'
+          | 'Clock'
+          | 'Percent'
+          | 'BadgePercent'
+          | 'Banknote'
+          | 'Building2'
+          | 'Store'
+          | 'Home'
+          | 'KeyRound'
+          | 'Hammer'
+          | 'Gavel'
+          | 'Link2Off'
+          | 'Landmark'
+          | 'TrendingUp'
+          | 'Handshake'
+          | 'Globe2'
+          | 'UserRound'
+          | 'Users';
+        title: string;
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  calculatorTitle: string;
+  calculatorText: string;
+  /**
+   * Saved with each lead, e.g. "Development Finance".
+   */
+  product: string;
+  minAmount?: number | null;
+  ctaTitle: string;
+  ctaText: string;
+  formType?: ('internal' | 'zoho') | null;
+  /**
+   * The form name, e.g. WebToLeads268536000003406001
+   */
+  zohoFormName?: string | null;
+  zohoXnQsjsdp?: string | null;
+  zohoXmIwtLD?: string | null;
+  zohoDescriptionLabel?: string | null;
+  /**
+   * Browser tab / Google title (about 60 characters).
+   */
+  metaTitle?: string | null;
+  /**
+   * Google snippet (about 150 characters).
+   */
+  metaDescription?: string | null;
+  /**
+   * Only published pages are visible to the public.
+   */
+  published?: boolean | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
@@ -1112,6 +1227,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'case-studies';
         value: number | CaseStudy;
+      } | null)
+    | ({
+        relationTo: 'landing-pages';
+        value: number | LandingPage;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -1550,6 +1669,55 @@ export interface CaseStudiesSelect<T extends boolean = true> {
   outcomeTitle?: T;
   outcome?: T;
   advisor?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "landing-pages_select".
+ */
+export interface LandingPagesSelect<T extends boolean = true> {
+  title?: T;
+  eyebrow?: T;
+  titlePre?: T;
+  titleHighlight?: T;
+  titlePost?: T;
+  heroText?: T;
+  exampleKey?: T;
+  stats?:
+    | T
+    | {
+        value?: T;
+        label?: T;
+        id?: T;
+      };
+  infoEyebrow?: T;
+  infoTitle?: T;
+  infoText?: T;
+  infoItems?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        text?: T;
+        id?: T;
+      };
+  calculatorTitle?: T;
+  calculatorText?: T;
+  product?: T;
+  minAmount?: T;
+  ctaTitle?: T;
+  ctaText?: T;
+  formType?: T;
+  zohoFormName?: T;
+  zohoXnQsjsdp?: T;
+  zohoXmIwtLD?: T;
+  zohoDescriptionLabel?: T;
+  metaTitle?: T;
+  metaDescription?: T;
+  published?: T;
+  generateSlug?: T;
+  slug?: T;
   updatedAt?: T;
   createdAt?: T;
 }

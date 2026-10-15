@@ -65,7 +65,7 @@ export const MobileCtaBar: React.FC<{ fallbackHref?: string }> = ({ fallbackHref
               e.preventDefault()
               document.getElementById('enquiry-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
             }}
-            className={`${btn} bg-brand-600 text-white hover:bg-brand-700`}
+            className={`${btn} pulse-ring bg-brand-600 text-white hover:bg-brand-700`}
           >
             Get Your Quote
             <ArrowRight size={16} />
@@ -74,7 +74,7 @@ export const MobileCtaBar: React.FC<{ fallbackHref?: string }> = ({ fallbackHref
           <Link
             href={fallbackHref!}
             tabIndex={visible ? 0 : -1}
-            className={`${btn} bg-brand-600 text-white hover:bg-brand-700`}
+            className={`${btn} pulse-ring bg-brand-600 text-white hover:bg-brand-700`}
           >
             Get Your Quote
             <ArrowRight size={16} />

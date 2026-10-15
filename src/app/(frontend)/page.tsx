@@ -10,6 +10,7 @@ import { StatsBar } from '@/components/site/StatsBar'
 import { TrustBar } from '@/components/site/TrustBar'
 import { Calculator } from '@/components/site/Calculator'
 import { ProductsGrid } from '@/components/site/ProductsGrid'
+import { AudienceSection } from '@/components/site/AudienceSection'
 import { SectionHeading } from '@/components/site/SectionHeading'
 import { CtaBanner } from '@/components/site/CtaBanner'
 import { Reveal } from '@/components/site/Reveal'
@@ -103,7 +104,9 @@ export default async function HomePage() {
 
       <ProductsGrid />
 
-      <section className="bg-white pb-16 lg:pb-24">
+      <AudienceSection />
+
+      <section className="bg-white py-16 lg:py-24">
         <div className="container">
           <div className="grid gap-6 rounded-2xl bg-mist p-6 sm:grid-cols-2 lg:grid-cols-4 lg:p-10">
             {WHY_A2Z.map((w, i) => (
@@ -145,18 +148,20 @@ export default async function HomePage() {
             {FALLBACK_ADVISORS.map((a, i) => (
               <Reveal key={a.name} delay={i * 100}>
                 <div className="h-full rounded-xl bg-navy-800 p-5 transition-transform hover:-translate-y-1">
-                  <div className="flex h-24 items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-brand-400/60 to-navy-600">
+                  <div className="flex items-center gap-4">
                     <Image
                       src={a.photo}
                       alt={a.name}
-                      width={200}
-                      height={96}
-                      className="h-full w-full object-cover"
+                      width={160}
+                      height={160}
+                      className="h-16 w-16 shrink-0 rounded-full object-cover object-top ring-2 ring-brand-400/70"
                     />
+                    <div className="min-w-0">
+                      <p className="text-sm font-bold">{a.name}</p>
+                      <p className="text-xs text-brand-400">{a.role}</p>
+                    </div>
                   </div>
-                  <p className="mt-4 text-sm font-bold">{a.name}</p>
-                  <p className="text-xs text-brand-400">{a.role}</p>
-                  <p className="mt-2 text-xs italic leading-relaxed text-white/60">“{a.quote}”</p>
+                  <p className="mt-4 text-xs italic leading-relaxed text-white/60">“{a.quote}”</p>
                 </div>
               </Reveal>
             ))}

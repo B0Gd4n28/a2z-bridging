@@ -5,29 +5,33 @@ import { SITE } from '@/lib/site'
 export const LogoMarquee: React.FC<{ className?: string }> = ({ className = '' }) => {
   const doubled = [...SITE.lenders, ...SITE.lenders]
   return (
-    <div className={`marquee overflow-hidden ${className}`} aria-label="Our lender panel">
-      <div className="marquee-track items-center gap-10">
-        {doubled.map((l, i) =>
-          l.logo ? (
-            <Image
+    <div
+      className={`marquee overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_6%,#000_94%,transparent)] ${className}`}
+      aria-label="Our lender panel"
+    >
+      <div className="marquee-track items-center gap-4 py-2 sm:gap-5">
+        {doubled.map((l, i) => {
+          const hidden = i >= SITE.lenders.length
+          return (
+            <div
               key={`${l.name}-${i}`}
-              src={l.logo}
-              alt={i < SITE.lenders.length ? l.name : ''}
-              aria-hidden={i >= SITE.lenders.length}
-              width={120}
-              height={40}
-              className="h-9 w-auto object-contain opacity-60 grayscale transition hover:opacity-100 hover:grayscale-0"
-            />
-          ) : (
-            <span
-              key={`${l.name}-${i}`}
-              aria-hidden={i >= SITE.lenders.length}
-              className="whitespace-nowrap font-serif text-base font-bold text-navy-800/50 transition hover:text-navy-800"
+              aria-hidden={hidden}
+              className="flex h-16 w-40 shrink-0 items-center justify-center rounded-xl border border-navy-100 bg-white px-4 shadow-sm transition-all hover:-translate-y-0.5 hover:border-brand-500/40 hover:shadow-md sm:w-44"
             >
-              {l.name}
-            </span>
-          ),
-        )}
+              {l.logo ? (
+                <Image
+                  src={l.logo}
+                  alt={hidden ? '' : l.name}
+                  width={188}
+                  height={54}
+                  className="max-h-10 w-auto max-w-full object-contain"
+                />
+              ) : (
+                <span className="whitespace-nowrap font-serif text-sm font-bold text-navy-800">{l.name}</span>
+              )}
+            </div>
+          )
+        })}
       </div>
     </div>
   )

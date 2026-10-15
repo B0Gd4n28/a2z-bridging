@@ -68,15 +68,16 @@ export default async function TeamPage() {
           <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {team.map((m, i) => (
               <Reveal key={m.name} delay={(i % 3) * 100}>
-                <div className="h-full overflow-hidden rounded-xl border border-navy-100 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
-                  <div className="flex h-44 items-center justify-center overflow-hidden bg-gradient-to-br from-brand-400/60 via-brand-100 to-mist">
+                <div className="group h-full overflow-hidden rounded-xl border border-navy-100 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
+                  <div className="flex aspect-[4/5] items-center justify-center overflow-hidden bg-gradient-to-br from-brand-400/60 via-brand-100 to-mist sm:aspect-square">
                     {m.photoUrl ? (
                       <Image
                         src={m.photoUrl}
                         alt={m.name}
-                        width={352}
-                        height={176}
-                        className="h-full w-full object-cover"
+                        width={640}
+                        height={640}
+                        sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 92vw"
+                        className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (
                       <UserRound size={56} strokeWidth={1.2} className="text-white/90 drop-shadow" aria-hidden="true" />
