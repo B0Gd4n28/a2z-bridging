@@ -43,8 +43,10 @@ export default buildConfig({
       titleSuffix: ' — A2Z Bridging CMS',
     },
     components: {
-      // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
-      // Feel free to delete this at any time. Simply remove the line below.
+      graphics: {
+        Logo: '@/components/AdminLogo',
+        Icon: '@/components/AdminIcon',
+      },
       beforeLogin: ['@/components/BeforeLogin'],
     },
     importMap: {

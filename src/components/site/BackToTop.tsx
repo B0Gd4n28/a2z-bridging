@@ -18,7 +18,7 @@ export const BackToTop: React.FC = () => {
       type="button"
       aria-label="Back to top"
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className={`fixed bottom-24 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-navy-900 text-white shadow-lg ring-1 ring-white/10 transition-all duration-300 hover:bg-brand-600 hover:shadow-brand-600/30 lg:bottom-6 lg:right-6 ${
+      className={`fixed bottom-24 left-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-navy-900 text-white shadow-lg ring-1 ring-white/10 transition-all duration-300 hover:bg-brand-600 hover:shadow-brand-600/30 lg:bottom-6 lg:left-6 ${
         visible ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0'
       }`}
     >

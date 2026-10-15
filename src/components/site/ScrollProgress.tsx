@@ -22,10 +22,10 @@ export const ScrollProgress: React.FC = () => {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-[3px] bg-transparent"
+      className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-1 bg-transparent"
     >
       <div
-        className="h-full origin-left bg-gradient-to-r from-brand-600 via-brand-400 to-brand-600 transition-transform duration-100 ease-out"
+        className="h-full origin-left bg-gradient-to-r from-brand-700 via-brand-400 to-brand-600 shadow-[0_0_10px_rgb(206_58_42/0.7)] transition-transform duration-100 ease-out"
         style={{ transform: `scaleX(${progress})` }}
       />
     </div>

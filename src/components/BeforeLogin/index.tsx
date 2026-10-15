@@ -4,8 +4,8 @@ const BeforeLogin: React.FC = () => {
   return (
     <div>
       <p>
-        <b>Welcome to your dashboard!</b>
-        {' This is where site admins will log in to manage your website.'}
+        <b>A2Z Bridging CMS</b>
+        {' Sign in to manage pages, guides, case studies, landing pages and incoming enquiries.'}
       </p>
     </div>
   )

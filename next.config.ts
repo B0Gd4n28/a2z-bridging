@@ -60,6 +60,8 @@ const nextConfig: NextConfig = {
     return webpackConfig
   },
   reactStrictMode: true,
+  // Legacy WordPress URLs end with a slash: handled in redirects.ts so they reach the new URL in ONE hop.
+  skipTrailingSlashRedirect: true,
   redirects,
   turbopack: {
     root: path.resolve(dirname),

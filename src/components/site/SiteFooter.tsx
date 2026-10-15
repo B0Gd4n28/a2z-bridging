@@ -112,9 +112,11 @@ export const SiteFooter: React.FC = () => {
       <div className="relative border-t border-white/10">
         <div className="container py-6 pb-28 lg:pb-6">
           <p className="text-xs leading-relaxed text-white/45">{SITE.disclaimer}</p>
-          <p className="mt-3 text-xs text-white/45">
-            © {new Date().getFullYear()} {SITE.legalName}. All rights reserved.
-          </p>
+          <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-white/45">
+            <p>© {new Date().getFullYear()} {SITE.legalName}. All rights reserved.</p>
+            <Link href="/privacy-policy" className="py-1.5 underline-offset-2 hover:text-white hover:underline">Privacy Policy</Link>
+            <Link href="/complaints" className="py-1.5 underline-offset-2 hover:text-white hover:underline">Complaints</Link>
+          </div>
         </div>
       </div>
     </footer>

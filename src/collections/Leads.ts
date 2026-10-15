@@ -32,7 +32,7 @@ export const Leads: CollectionConfig = {
   },
   fields: [
     { name: 'name', type: 'text', required: true },
-    { name: 'email', type: 'email', required: true },
+    { name: 'email', type: 'email' },
     { name: 'phone', type: 'text', required: true },
     { name: 'amount', type: 'number' },
     { name: 'product', type: 'text' },

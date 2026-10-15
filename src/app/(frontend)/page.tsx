@@ -11,6 +11,12 @@ import { TrustBar } from '@/components/site/TrustBar'
 import { Calculator } from '@/components/site/Calculator'
 import { ProductsGrid } from '@/components/site/ProductsGrid'
 import { AudienceSection } from '@/components/site/AudienceSection'
+import { SituationsSection, HOME_FAQS } from '@/components/site/HomeExtras'
+import { ProcessSteps } from '@/components/site/ProcessSteps'
+import { FaqAccordion } from '@/components/site/FaqAccordion'
+import { CaseStudyCarousel } from '@/components/site/CaseStudyCarousel'
+import type { CaseCard } from '@/components/site/CaseStudyBrowser'
+import { CASE_CATEGORY_LABELS } from '@/lib/case-studies'
 import { SectionHeading } from '@/components/site/SectionHeading'
 import { CtaBanner } from '@/components/site/CtaBanner'
 import { Reveal } from '@/components/site/Reveal'
@@ -21,10 +27,28 @@ import { SITE } from '@/lib/site'
 export const revalidate = 600
 
 const FALLBACK_ADVISORS = [
-  { name: 'Syed Abbas', role: 'CEO', quote: 'Syed kept me updated every step — completed in 11 days.', photo: '/team/syed-abbas.jpg' },
-  { name: 'Jimeet Kakar', role: 'Partner', quote: 'Jimeet found a lender when two banks had already said no.', photo: '/team/jimeet-kakar.jpg' },
-  { name: 'Ani Sheikh', role: 'Sales Director', quote: 'Clear, honest advice from the first call to completion.', photo: '/team/ani-sheikh.jpg' },
-  { name: 'Zain Abbas', role: 'Director of Business Development', quote: 'Zain got terms agreed within 24 hours of my call.', photo: '/team/zain-abbas.jpg' },
+  { name: 'Syed Abbas', role: 'CEO', quote: 'Leads A2Z Bridging and oversees every case from first call to completion.', photo: '/team/syed-abbas.jpg' },
+  { name: 'Jimeet Kakar', role: 'Partner', quote: 'Works across bridging, development and commercial finance deals.', photo: '/team/jimeet-kakar.jpg' },
+  { name: 'Ani Sheikh', role: 'Sales Director', quote: 'Leads the advisory team and manages key lender relationships.', photo: '/team/ani-sheikh.jpg' },
+  { name: 'Zain Abbas', role: 'Director of Business Development', quote: 'Builds new partnerships and manages complex, multi-property cases.', photo: '/team/zain-abbas.jpg' },
+]
+
+const PROCESS_STEPS = [
+  { title: 'Tell us about your deal', text: 'A short call or form: loan amount, property, deadline and how you plan to repay.' },
+  { title: 'Indicative terms, fast', text: 'We search the whole market and come back with options, typically the same working day.' },
+  { title: 'We run the case', text: 'We package the application, chase valuation and lender queries, and keep solicitors aligned to your deadline.' },
+  { title: 'Completion', text: 'Funds are released to your solicitor and the deal completes, on your timetable.' },
+]
+
+const FEATURED_CASES = [
+  '8m-commercial-loan-industrial',
+  'auction-bridging-loan-canary-wharf',
+  'bridging-loan-northwood-7-days',
+  'commercial-mortgage-vat-loan-ilford',
+  'semi-commercial-bridging-loan-kingston-24-hours',
+  'rescue-bridging-finance-receivership',
+  'bridging-finance-completed-3-days',
+  '90-ltv-bridging-loan-southall',
 ]
 
 const FALLBACK_GUIDES = [
@@ -50,6 +74,31 @@ const WHY_A2Z = [
   { icon: Handshake, title: 'Transparent, personal service', text: 'Startup energy with the sector experience of a high-street lender.' },
 ]
 
+async function getFeaturedCases(): Promise<CaseCard[]> {
+  try {
+    const payload = await getPayload({ config: configPromise })
+    const { docs } = await payload.find({
+      collection: 'case-studies',
+      where: { slug: { in: FEATURED_CASES } },
+      limit: 20,
+      depth: 0,
+    })
+    return FEATURED_CASES.flatMap((slug) => docs.filter((d) => d.slug === slug)).map((cs) => ({
+      id: cs.id,
+      slug: String(cs.slug),
+      title: cs.title,
+      category: cs.category,
+      categoryLabel: CASE_CATEGORY_LABELS[cs.category] ?? cs.category,
+      amount: cs.stats?.loanAmount,
+      ltv: cs.stats?.ltv,
+      time: cs.stats?.timeToCompletion,
+      location: cs.location,
+    }))
+  } catch {
+    return []
+  }
+}
+
 async function getLatestGuides() {
   try {
     const payload = await getPayload({ config: configPromise })
@@ -68,10 +117,21 @@ async function getLatestGuides() {
 }
 
 export default async function HomePage() {
-  const guides = await getLatestGuides()
+  const [guides, cases] = await Promise.all([getLatestGuides(), getFeaturedCases()])
+
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: HOME_FAQS.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <Hero
         eyebrow="Whole-of-Market Bridging & Commercial Finance"
         title={
@@ -105,6 +165,33 @@ export default async function HomePage() {
       <ProductsGrid />
 
       <AudienceSection />
+
+      <SituationsSection />
+
+      <ProcessSteps eyebrow="How It Works" title="From First Call to Completion" steps={PROCESS_STEPS} />
+
+      {cases.length > 0 && (
+        <section className="bg-navy-900 py-20 text-white lg:py-28">
+          <div className="container">
+            <Reveal>
+              <SectionHeading
+                light
+                eyebrow="Case Studies"
+                title="Real Deals, Real Deadlines"
+                text="A selection of completed A2Z deals, with the loan amount, LTV and the time it took."
+              />
+            </Reveal>
+            <div className="mt-12">
+              <CaseStudyCarousel cases={cases} />
+            </div>
+            <div className="mt-8 text-center">
+              <Link href="/case-studies" className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-white/90 hover:text-white hover:underline">
+                See all case studies <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="bg-white py-16 lg:py-24">
         <div className="container">
@@ -161,7 +248,7 @@ export default async function HomePage() {
                       <p className="text-xs text-brand-400">{a.role}</p>
                     </div>
                   </div>
-                  <p className="mt-4 text-xs italic leading-relaxed text-white/60">“{a.quote}”</p>
+                  <p className="mt-4 text-xs leading-relaxed text-white/60">{a.quote}</p>
                 </div>
               </Reveal>
             ))}
@@ -185,6 +272,17 @@ export default async function HomePage() {
       </section>
 
       <section className="bg-white py-20 lg:py-28">
+        <div className="container">
+          <Reveal>
+            <SectionHeading eyebrow="FAQ" title="Questions We Hear Every Day" text="Quick answers on timing, costs and how bridging works." />
+          </Reveal>
+          <Reveal delay={150} className="mt-12">
+            <FaqAccordion faqs={HOME_FAQS} tone="mist" />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-mist py-20 lg:py-28">
         <div className="container">
           <Reveal>
             <SectionHeading eyebrow="Learn" title="Guides & Insights" />

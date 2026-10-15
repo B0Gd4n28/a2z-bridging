@@ -137,7 +137,7 @@ export const PRODUCTS: Product[] = [
       { title: 'Complete on Time', text: 'Funds released well inside the deadline — our fastest case completed in 9 days.' },
     ],
     faqs: [
-      { q: 'Can you really complete within 28 days?', a: 'Yes — auction finance is designed for exactly this. Our fastest completion was 9 days from first contact.' },
+      { q: 'Can you really complete within 28 days?', a: 'Yes — auction finance is designed for exactly this. Our auction case studies show real completions inside the standard 28-day window.' },
       { q: 'Should I arrange finance before bidding?', a: 'Ideally yes. A decision in principle before auction day means you know your budget and can move immediately after the hammer falls.' },
       { q: 'What if the property is unmortgageable?', a: 'Bridging lenders regularly fund properties mainstream banks decline — no kitchen, no bathroom, structural issues, or mixed use.' },
     ],

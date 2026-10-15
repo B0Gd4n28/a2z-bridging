@@ -1,12 +1,9 @@
 import type { Metadata } from 'next/types'
 
-import { CollectionArchive } from '@/components/CollectionArchive'
-import { PageRange } from '@/components/PageRange'
-import { Pagination } from '@/components/Pagination'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
-import PageClient from './page.client'
+import { GuidesIndex } from '@/components/site/GuidesIndex'
 
 export const dynamic = 'force-static'
 export const revalidate = 600
@@ -18,48 +15,27 @@ export default async function Page() {
     collection: 'posts',
     depth: 1,
     limit: 12,
+    sort: '-publishedAt',
     overrideAccess: false,
     select: {
       title: true,
       slug: true,
       categories: true,
       meta: true,
+      publishedAt: true,
+      heroImage: true,
+      content: true,
     },
   })
 
-  return (
-    <div className="pt-24 pb-24">
-      <PageClient />
-      <div className="container mb-16">
-        <div className="prose dark:prose-invert max-w-none">
-          <h1>Guides & Insights</h1>
-        </div>
-      </div>
-
-      <div className="container mb-8">
-        <PageRange
-          collection="posts"
-          currentPage={posts.page}
-          limit={12}
-          totalDocs={posts.totalDocs}
-        />
-      </div>
-
-      <CollectionArchive posts={posts.docs} />
-
-      <div className="container">
-        {posts.totalPages > 1 && posts.page && (
-          <Pagination page={posts.page} totalPages={posts.totalPages} />
-        )}
-      </div>
-    </div>
-  )
+  return <GuidesIndex posts={posts.docs} page={posts.page ?? 1} totalPages={posts.totalPages} totalDocs={posts.totalDocs} />
 }
 
 export function generateMetadata(): Metadata {
   return {
-    title: { absolute: 'Guides & Insights | A2Z Bridging' },
+    title: { absolute: 'Property Finance Guides — Bridging & BTL | A2Z Bridging' },
     description:
-      'Plain-English guides on bridging, auction, and commercial finance — written by the advisors who arrange these deals every day.',
+      'Plain-English guides to bridging loans, auction finance, buy-to-let and commercial mortgages from the A2Z Bridging team.',
+    alternates: { canonical: '/guides' },
   }
 }

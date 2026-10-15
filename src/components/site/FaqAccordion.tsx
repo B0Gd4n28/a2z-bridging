@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 
-export const FaqAccordion: React.FC<{ faqs: { q: string; a: string }[] }> = ({ faqs }) => {
+export const FaqAccordion: React.FC<{ faqs: { q: string; a: string }[]; tone?: 'white' | 'mist' }> = ({ faqs, tone = 'white' }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
@@ -10,7 +10,7 @@ export const FaqAccordion: React.FC<{ faqs: { q: string; a: string }[] }> = ({ f
       {faqs.map((f, i) => {
         const open = openIndex === i
         return (
-          <div key={f.q} className="rounded-lg bg-white shadow-sm">
+          <div key={f.q} className={`rounded-lg shadow-sm ${tone === 'mist' ? 'bg-mist' : 'bg-white'}`}>
             <button
               type="button"
               onClick={() => setOpenIndex(open ? null : i)}

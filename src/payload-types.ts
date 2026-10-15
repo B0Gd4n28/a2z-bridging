@@ -801,7 +801,7 @@ export interface Form {
 export interface Lead {
   id: number;
   name: string;
-  email: string;
+  email?: string | null;
   phone: string;
   amount?: number | null;
   product?: string | null;
@@ -879,6 +879,9 @@ export interface CaseStudy {
     term?: string | null;
     timeToCompletion?: string | null;
   };
+  /**
+   * Legacy short-form field. Used only when no Article sections are set.
+   */
   challengeTitle?: string | null;
   challenge?: string | null;
   solutionTitle?: string | null;
@@ -886,6 +889,56 @@ export interface CaseStudy {
   outcomeTitle?: string | null;
   outcome?: string | null;
   advisor?: (number | null) | TeamMember;
+  intro?: string | null;
+  location?: string | null;
+  /**
+   * Label / value pairs shown in the "Deal Snapshot" panel (e.g. Property Value — £560,000).
+   */
+  snapshot?:
+    | {
+        label: string;
+        value: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * The story: scenario, what could have gone wrong, the solution, etc.
+   */
+  sections?:
+    | {
+        heading: string;
+        tone?: ('default' | 'risk' | 'solution') | null;
+        body?: string | null;
+        bullets?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  outcomeStats?:
+    | {
+        value: string;
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
+  faqs?:
+    | {
+        question: string;
+        answer: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Search-result title (about 50–60 characters).
+   */
+  metaTitle?: string | null;
+  /**
+   * Search-result description (about 150 characters).
+   */
+  metaDescription?: string | null;
+  /**
+   * Original WordPress path (reference only; redirect is configured in code).
+   */
+  oldUrl?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1669,6 +1722,41 @@ export interface CaseStudiesSelect<T extends boolean = true> {
   outcomeTitle?: T;
   outcome?: T;
   advisor?: T;
+  intro?: T;
+  location?: T;
+  snapshot?:
+    | T
+    | {
+        label?: T;
+        value?: T;
+        id?: T;
+      };
+  sections?:
+    | T
+    | {
+        heading?: T;
+        tone?: T;
+        body?: T;
+        bullets?: T;
+        id?: T;
+      };
+  outcomeStats?:
+    | T
+    | {
+        value?: T;
+        label?: T;
+        id?: T;
+      };
+  faqs?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
+  metaTitle?: T;
+  metaDescription?: T;
+  oldUrl?: T;
   updatedAt?: T;
   createdAt?: T;
 }
