@@ -52,6 +52,13 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    // Keeps the Blob upload handler in the import map even when generated without BLOB_READ_WRITE_TOKEN (e.g. by `next dev`).
+    dependencies: {
+      vercelBlobUploadHandler: {
+        type: 'component',
+        path: '@payloadcms/storage-vercel-blob/client#VercelBlobClientUploadHandler',
+      },
+    },
     user: Users.slug,
     livePreview: {
       breakpoints: [

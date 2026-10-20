@@ -7,7 +7,6 @@ import {
   Mail,
   MapPin,
   ShieldCheck,
-  ArrowRight,
   Clock,
 } from 'lucide-react'
 import { FOOTER_COMPANY, FOOTER_PRODUCTS, SITE } from '@/lib/site'
@@ -65,8 +64,7 @@ export const SiteFooter: React.FC = () => {
           <ul className="mt-3">
             {FOOTER_PRODUCTS.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="group inline-flex items-center gap-1.5 py-2.5 text-sm text-white/75 transition-colors hover:text-white">
-                  <ArrowRight size={12} className="text-brand-500 opacity-0 transition-opacity group-hover:opacity-100" />
+                <Link href={l.href} className="inline-block py-2.5 text-sm text-white/75 transition-all hover:translate-x-1 hover:text-white">
                   {l.label}
                 </Link>
               </li>
@@ -79,8 +77,7 @@ export const SiteFooter: React.FC = () => {
           <ul className="mt-3">
             {FOOTER_COMPANY.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="group inline-flex items-center gap-1.5 py-2.5 text-sm text-white/75 transition-colors hover:text-white">
-                  <ArrowRight size={12} className="text-brand-500 opacity-0 transition-opacity group-hover:opacity-100" />
+                <Link href={l.href} className="inline-block py-2.5 text-sm text-white/75 transition-all hover:translate-x-1 hover:text-white">
                   {l.label}
                 </Link>
               </li>

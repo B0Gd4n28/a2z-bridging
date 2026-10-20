@@ -48,6 +48,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html
       className={cn(inter.variable, montserrat.variable)}
       lang="en"
+      data-theme="light"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >

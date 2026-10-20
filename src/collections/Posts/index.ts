@@ -1,12 +1,24 @@
 import type { CollectionConfig } from 'payload'
 
 import {
+  AlignFeature,
+  BlockquoteFeature,
   BlocksFeature,
+  ChecklistFeature,
+  EXPERIMENTAL_TableFeature,
   FixedToolbarFeature,
   HeadingFeature,
   HorizontalRuleFeature,
+  IndentFeature,
+  InlineCodeFeature,
   InlineToolbarFeature,
   lexicalEditor,
+  OrderedListFeature,
+  StrikethroughFeature,
+  SubscriptFeature,
+  SuperscriptFeature,
+  UnorderedListFeature,
+  UploadFeature,
 } from '@payloadcms/richtext-lexical'
 
 import { authenticated } from '../../access/authenticated'
@@ -91,7 +103,25 @@ export const Posts: CollectionConfig<'posts'> = {
                 features: ({ rootFeatures }) => {
                   return [
                     ...rootFeatures,
-                    HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+                    HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
+                    BlockquoteFeature(),
+                    UnorderedListFeature(),
+                    OrderedListFeature(),
+                    ChecklistFeature(),
+                    StrikethroughFeature(),
+                    SubscriptFeature(),
+                    SuperscriptFeature(),
+                    InlineCodeFeature(),
+                    AlignFeature(),
+                    IndentFeature(),
+                    EXPERIMENTAL_TableFeature(),
+                    UploadFeature({
+                      collections: {
+                        media: {
+                          fields: [{ name: 'caption', type: 'text', label: 'Caption (optional)' }],
+                        },
+                      },
+                    }),
                     BlocksFeature({ blocks: [Banner, Code, MediaBlock] }),
                     FixedToolbarFeature(),
                     InlineToolbarFeature(),
@@ -112,6 +142,7 @@ export const Posts: CollectionConfig<'posts'> = {
               type: 'relationship',
               admin: {
                 position: 'sidebar',
+                description: 'Optional. Guides shown under "Keep reading" at the bottom of this article. If empty, the latest guides are shown.',
               },
               filterOptions: ({ id }) => {
                 return {
@@ -128,12 +159,13 @@ export const Posts: CollectionConfig<'posts'> = {
               type: 'relationship',
               admin: {
                 position: 'sidebar',
+                description: 'Topic label shown as a badge on the guide card and article header (e.g. Bridging, Auction). Manage the list under Categories.',
               },
               hasMany: true,
               relationTo: 'categories',
             },
           ],
-          label: 'Meta',
+          label: 'Related & Categories',
         },
         {
           name: 'meta',

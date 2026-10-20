@@ -127,14 +127,14 @@ export const PRODUCTS: Product[] = [
     stats: [
       { value: '£50k–£5m', label: 'Loan range' },
       { value: 'Up to 75%', label: 'Loan-to-value' },
-      { value: '9 days', label: 'Fastest completion' },
-      { value: 'Same day', label: 'Decision in principle' },
+      { value: '28 days', label: 'Built around' },
+      { value: 'Before you bid', label: 'Terms agreed' },
     ],
     steps: [
       { title: 'Call Before You Bid', text: 'Get an agreement in principle before auction day so you bid with confidence.' },
       { title: 'Win the Lot', text: 'Exchange happens on the day — your 28-day countdown starts immediately.' },
       { title: 'We Fast-Track the Case', text: 'Valuation and legals run in parallel with lenders who understand auction deadlines.' },
-      { title: 'Complete on Time', text: 'Funds released well inside the deadline — our fastest case completed in 9 days.' },
+      { title: 'Complete on Time', text: 'Funds released well inside the deadline, as in our Canary Wharf auction case study.' },
     ],
     faqs: [
       { q: 'Can you really complete within 28 days?', a: 'Yes — auction finance is designed for exactly this. Our auction case studies show real completions inside the standard 28-day window.' },
@@ -143,7 +143,7 @@ export const PRODUCTS: Product[] = [
     ],
     metaTitle: 'Auction Finance — Complete Inside 28 Days | A2Z Bridging',
     metaDescription:
-      'Property auction finance built for the 28-day deadline. Same-day decisions in principle, completions in as little as 9 days. FCA authorised broker.',
+      'Property auction finance built for the 28-day deadline. Terms agreed before you bid, valuers and solicitors instructed early. FCA authorised broker.',
   },
   {
     slug: 'commercial-mortgages',

@@ -14,6 +14,7 @@ import { GuideCard, type GuideCardData } from '@/components/site/GuideCard'
 import { generateMeta } from '@/utilities/generateMeta'
 import { formatAuthors } from '@/utilities/formatAuthors'
 import { formatPublished, readingTime } from '@/utilities/readingTime'
+import { extractHeadings } from '@/utilities/headings'
 import { getServerSideURL } from '@/utilities/getURL'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { SITE } from '@/lib/site'
@@ -55,6 +56,7 @@ export default async function Post({ params: paramsPromise }: Args) {
     post.populatedAuthors && post.populatedAuthors.length > 0 ? formatAuthors(post.populatedAuthors) : ''
   const description = post.meta?.description?.replace(/\s+/g, ' ')
   const minutes = readingTime(post.content)
+  const toc = extractHeadings(post.content)
   const base = getServerSideURL()
   const shareUrl = encodeURIComponent(`${base}${url}`)
   const shareTitle = encodeURIComponent(post.title)
@@ -143,6 +145,18 @@ export default async function Post({ params: paramsPromise }: Args) {
           </div>
 
           <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
+            {toc.length >= 3 && (
+              <nav aria-label="In this article" className="rounded-2xl border border-navy-900/10 bg-white p-6">
+                <p className="text-xs font-semibold uppercase tracking-widest text-navy-900/50">In this article</p>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {toc.map((h) => (
+                    <li key={h.id} className={h.level === 3 ? 'pl-4' : ''}>
+                      <a href={`#${h.id}`} className="text-navy-900/75 hover:text-brand-600">{h.text}</a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
             <div className="rounded-2xl bg-navy-900 p-6 text-white">
               <p className="font-serif text-lg font-bold">Need finance for your deal?</p>
               <p className="mt-2 text-sm leading-relaxed text-white/70">

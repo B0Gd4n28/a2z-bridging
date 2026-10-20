@@ -1,5 +1,6 @@
 import React from 'react'
 import { BadgeCheck, Clock, Globe2, ShieldCheck } from 'lucide-react'
+import { HERO_SCENES } from './HeroScenes'
 
 /* Original, license-free hero artwork: a stylised property skyline plus floating "product" cards.
    Pure SVG/CSS — no image requests, no layout shift. Illustrative figures only (match the calculator defaults). */
@@ -64,15 +65,8 @@ export const Skyline: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 )
 
-/* Illustrative example per product (keyed by product slug). Never presented as a real offer. */
-const HERO_EXAMPLES: Record<string, { amount: number; product: string; term: string; ltv: number }> = {
-  'bridging-loans': { amount: 450_000, product: 'Bridging loan', term: '9 months', ltv: 64 },
-  'buy-to-let-mortgages': { amount: 320_000, product: 'Buy-to-let mortgage', term: '5 years', ltv: 75 },
-  'development-loans': { amount: 1_500_000, product: 'Development finance', term: '18 months', ltv: 60 },
-  'property-auction-finance': { amount: 280_000, product: 'Auction finance', term: '3 months', ltv: 60 },
-  'commercial-mortgages': { amount: 1_200_000, product: 'Commercial mortgage', term: '15 years', ltv: 65 },
-  'business-loans': { amount: 250_000, product: 'Business loan', term: '3 years', ltv: 50 },
-}
+/* Illustrative example for the homepage quote card. Never presented as a real offer. */
+const HOME_EXAMPLE = { amount: 450_000, product: 'Bridging loan', term: '9 months', ltv: 64 }
 
 const Chip: React.FC<{
   icon: React.ReactNode
@@ -93,8 +87,10 @@ const Chip: React.FC<{
   </div>
 )
 
-export const HeroVisual: React.FC<{ example?: string }> = ({ example = 'bridging-loans' }) => {
-  const ex = HERO_EXAMPLES[example] ?? HERO_EXAMPLES['bridging-loans']
+export const HeroVisual: React.FC<{ example?: string }> = ({ example }) => {
+  const Scene = example ? HERO_SCENES[example] : undefined
+  if (Scene) return <Scene />
+  const ex = HOME_EXAMPLE
   const gbp = (n: number) =>
     n.toLocaleString('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 })
   return (

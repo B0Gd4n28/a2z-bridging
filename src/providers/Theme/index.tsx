@@ -5,8 +5,7 @@ import React, { createContext, useCallback, use, useEffect, useState } from 'rea
 import type { Theme, ThemeContextType } from './types'
 
 import canUseDOM from '@/utilities/canUseDOM'
-import { defaultTheme, getImplicitPreference, themeLocalStorageKey } from './shared'
-import { themeIsValid } from './types'
+import { getImplicitPreference, themeLocalStorageKey } from './shared'
 
 const initialContext: ThemeContextType = {
   setTheme: () => null,
@@ -34,19 +33,8 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   }, [])
 
   useEffect(() => {
-    let themeToSet: Theme = defaultTheme
-    const preference = window.localStorage.getItem(themeLocalStorageKey)
-
-    if (themeIsValid(preference)) {
-      themeToSet = preference
-    } else {
-      const implicitPreference = getImplicitPreference()
-
-      if (implicitPreference) {
-        themeToSet = implicitPreference
-      }
-    }
-
+    // The site is designed light-only: ignore system/stored dark preference.
+    const themeToSet: Theme = 'light'
     document.documentElement.setAttribute('data-theme', themeToSet)
     setThemeState(themeToSet)
   }, [])

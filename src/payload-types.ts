@@ -257,7 +257,13 @@ export interface Post {
     };
     [k: string]: unknown;
   };
+  /**
+   * Optional. Guides shown under "Keep reading" at the bottom of this article. If empty, the latest guides are shown.
+   */
   relatedPosts?: (number | Post)[] | null;
+  /**
+   * Topic label shown as a badge on the guide card and article header (e.g. Bridging, Auction). Manage the list under Categories.
+   */
   categories?: (number | Category)[] | null;
   meta?: {
     title?: string | null;

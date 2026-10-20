@@ -1,4 +1,4 @@
-# CMS User Guide — A2Z Bridging
+﻿# CMS User Guide — A2Z Bridging
 
 The admin panel (CMS) controls all of the site's dynamic content: articles (Guides), case studies, the team, testimonials, and leads submitted through forms.
 
@@ -28,7 +28,7 @@ The left-hand menu is organised into groups:
 | **Team** | Team members: name, role, bio, photo, specialism tags. The **order** field controls display order (lower = first) | `/team` + linked from case studies |
 | **Testimonials** | Client reviews. Tick **featured** for the best ones | homepage (carousel) |
 | **Media** | All images/files. **Always fill in the alt text** — it matters for SEO | site-wide |
-| **Categories** | Categories used to organise guides (e.g. Bridging, Auction) | filters on `/guides` |
+| **Categories** | Topic labels for guides (e.g. Bridging, Auction), shown as badges | badge on `/guides` cards and article pages |
 
 ### 📞 "CRM" group
 
@@ -50,9 +50,9 @@ The left-hand menu is organised into groups:
 2. Fill in **Title** — the slug is generated automat
 ically
 3. Add a **Hero Image** (from Media or upload directly)
-4. Write the content in the editor (headings, lists, quotes, images, blocks)
+4. Write the content in the editor. Use the toolbar for headings (H2/H3/H4), bold/italic/underline/strikethrough, bullet, numbered and checklist lists, quotes, alignment, links, **tables**, and **images** (the picture icon inserts an image from Media, with an optional caption). The `+` menu also offers Banner (callout), Code and Media blocks. H2/H3 headings automatically build the "In this article" contents list on the page
 5. **SEO** tab: fill in **Meta Title** (max ~60 characters) and **Meta Description** (max ~155) — the *Auto-generate* button helps
-6. (Optional) choose **Categories** and **Authors**
+6. **Related & Categories** tab: **Categories** are topic labels (e.g. *Bridging*, *Auction*). They are shown as badges on the guide and its card, and organise guides by topic. **Related posts** are the articles suggested under "Keep reading" (if empty, the latest guides are shown). Choose **Authors** in the sidebar
 7. **Preview** (the eye icon, top right) — see exactly how the article will look on mobile/tablet/desktop
 8. **Publish** — or **Save Draft** to continue later
 9. The article appears instantly on `/guides` and on the homepage under "Guides & Insights"

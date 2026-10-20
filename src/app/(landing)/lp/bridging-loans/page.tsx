@@ -36,6 +36,7 @@ export default function BridgingLandingPage() {
       titleHighlight="Without"
       titlePost="the Wait"
       heroText="Complete a purchase, cover a chain break, or beat an auction deadline — with a whole-of-market panel and a named advisor who gets you a decision in hours, not weeks."
+      visualExample="bridging-loans"
       stats={[
         { value: '£50k–£10m', label: 'Loan range' },
         { value: 'Up to 75%', label: 'Loan-to-value' },
